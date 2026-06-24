@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お部屋探しヒアリングフォーム｜ぶっちゃけ不動産</title>
+<style>
+  :root {
+    --green: #96C96B;
+    --green-dark: #6BA846;
+    --green-light: #DCF2C0;
+    --green-deep: #3D6B28;
+    --black: #1A1A1A;
+    --gray: #555555;
+    --gray-light: #F7F7F7;
+    --white: #FFFFFF;
+    --border: #E0E0E0;
+    --error: #E05050;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    background: var(--gray-light);
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(135deg, #1A1A1A, #2D3A1A);
+    color: white;
+    padding: 28px 20px 24px;
+    text-align: center;
+  }
+  .header .badge {
+    display: inline-block;
+    background: var(--green);
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: clamp(20px, 5vw, 26px);
+    font-weight: 900;
+    margin-bottom: 6px;
+  }
+  .header p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ===== PROGRESS ===== */
+  .progress-wrap {
+    background: white;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .progress-bar-bg {
+    background: #e8e8e8;
+    border-radius: 10px;
+    height: 6px;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .progress-bar-fill {
+    background: var(--green-dark);
+    height: 6px;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+  .progress-label {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 6px;
+  }
+
+  /* ===== FORM ===== */
+  .form-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  .form-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    margin-bottom: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 22px;
+  }
+  .form-group:last-child { margin-bottom: 0; }
+
+  label {
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+  label .required {
+    background: #E05050;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  label .optional {
+    background: #ccc;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  label .hint {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray);
+    margin-top: 3px;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--black);
+    background: white;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--green-dark);
+  }
+  textarea { resize: vertical; min-height: 80px; }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23555' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  /* CHIP OPTIONS */
+  .chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2px;
+  }
+  .chip-group input[type="checkbox"],
+  .chip-group input[type="radio"] {
+    display: none;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 2px solid var(--border);
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: white;
+    user-select: none;
+  }
+  .chip-group input:checked + .chip {
+    background: var(--green-light);
+    border-color: var(--green-dark);
+    color: var(--green-deep);
+    font-weight: 700;
+  }
+
+  /* RANGE INPUT */
+  .range-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .range-row input { flex: 1; }
+  .range-sep { color: var(--gray); font-size: 14px; flex-shrink: 0; }
+
+  /* SECTION LABEL */
+  .section-label-form {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--green-dark);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--green-light);
+  }
+
+  /* SUBMIT */
+  .submit-btn {
+    display: block;
+    width: 100%;
+    background: var(--green-dark);
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 8px;
+    font-family: inherit;
+  }
+  .submit-btn:hover { background: var(--green-deep); transform: translateY(-2px); }
+  .submit-btn:active { transform: translateY(0); }
+
+  .submit-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 12px;
+  }
+
+  /* COMPLETE STATE */
+  #complete-screen {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  #complete-screen .big-check {
+    font-size: 72px;
+    margin-bottom: 20px;
+  }
+  #complete-screen h2 {
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+  #complete-screen h2 span { color: var(--green-dark); }
+  #complete-screen p {
+    font-size: 15px;
+    color: var(--gray);
+    max-width: 400px;
+    margin: 0 auto 8px;
+  }
+  #complete-screen .line-note {
+    background: var(--green-light);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--green-deep);
+    font-weight: 600;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* HIDDEN FORM */
+  #form-screen.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">🏠 お部屋探しヒアリング</div>
+  <h1>あなたの希望を教えてください</h1>
+  <p>記入後すぐに担当者からLINEでご連絡します（無料）</p>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-bar-bg">
+    <div class="progress-bar-fill" id="progress-fill"></div>
+  </div>
+  <p class="progress-label" id="progress-label">回答を入力してください</p>
+</div>
+
+<!-- FORM SCREEN -->
+<div id="form-screen" class="form-wrap">
+
+  <form id="hearing-form" novalidate>
+
+    <!-- BASIC INFO -->
+    <div class="form-card">
+      <div class="section-label-form">👤 基本情報</div>
+
+      <div class="form-group">
+        <label>お名前 <span class="required">必須</span></label>
+        <input type="text" name="name" placeholder="例：山田 太郎" required>
+      </div>
+
+      <div class="form-group">
+        <label>LINEの表示名 <span class="optional">任意</span>
+          <span class="hint">確認のためあると助かります</span>
+        </label>
+        <input type="text" name="line_name" placeholder="例：たろう">
+      </div>
+
+      <div class="form-group">
+        <label>電話番号 <span class="optional">任意</span></label>
+        <input type="tel" name="phone" placeholder="例：090-0000-0000">
+      </div>
+    </div>
+
+    <!-- MOVE INFO -->
+    <div class="form-card">
+      <div class="section-label-form">📅 お引越し予定</div>
+
+      <div class="form-group">
+        <label>引越し希望時期 <span class="required">必須</span></label>
+        <select name="move_timing" required>
+          <option value="" disabled selected>選択してください</option>
+          <option>今すぐ〜1ヶ月以内</option>
+          <option>1〜2ヶ月以内</option>
+          <option>2〜3ヶ月以内</option>
+          <option>3ヶ月以上先</option>
+          <option>まだ未定</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>引越しの理由 <span class="optional">任意</span></label>
+        <div class="chip-group">
+          <input type="checkbox" name="reason" id="r1" value="一人暮らし開始">
+          <label class="chip" for="r1">🏠 一人暮らし開始</label>
+          <input type="checkbox" name="reason" id="r2" value="職場が変わった">
+          <label class="chip" for="r2">🏢 職場が変わった</label>
+          <input type="checkbox" name="reason" id="r3" value="進学・入学">
+          <label class="chip" for="r3">🎓 進学・入学</label>
+          <input type="checkbox" name="reason" id="r4" value="今の部屋を出たい">
+          <label class="chip" for="r4">📦 今の部屋を出たい</label>
+          <input type="checkbox" name="reason" id="r5" value="その他">
+          <label class="chip" for="r5">💬 その他</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- AREA -->
+    <div class="form-card">
+      <div class="section-label-form">📍 希望エリア</div>
+
+      <div class="form-group">
+        <label>希望エリア・沿線 <span class="required">必須</span>
+          <span class="hint">例：東京都渋谷区、JR山手線沿線など</span>
+        </label>
+        <input type="text" name="area" placeholder="例：東京都新宿区〜渋谷区あたり" required>
+      </div>
+
+      <div class="form-group">
+        <label>最寄り駅からの徒歩 <span class="optional">任意</span></label>
+        <div class="chip-group">
+          <input type="radio" name="walk_min" id="w1" value="5分以内">
+          <label class="chip" for="w1">🏃 5分以内</label>
+          <input type="radio" name="walk_min" id="w2" value="10分以内">
+          <label class="chip" for="w2">🚶 10分以内</label>
+          <input type="radio" name="walk_min" id="w3" value="15分以内">
+          <label class="chip" for="w3">15分以内</label>
+          <input type="radio" name="walk_min" id="w4" value="こだわらない">
+          <label class="chip" for="w4">🆓 こだわらない</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROOM -->
+    <div class="form-card">
+      <div class="section-label-form">🛋 お部屋の条件</div>
+
+      <div class="form-group">
+        <label>間取り <span class="required">必須</span></label>
+        <div class="chip-group">
+          <input type="checkbox" name="layout" id="l1" value="ワンルーム">
+          <label class="chip" for="l1">ワンルーム</label>
+          <input type="checkbox" name="layout" id="l2" value="1K">
+          <label class="chip" for="l2">1K</label>
+          <input type="checkbox" name="layout" id="l3" value="1DK">
+          <label class="chip" for="l3">1DK</label>
+          <input type="checkbox" name="layout" id="l4" value="1LDK">
+          <label class="chip" for="l4">1LDK</label>
+          <input type="checkbox" name="layout" id="l5" value="2K以上">
+          <label class="chip" for="l5">2K以上</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>家賃の上限 <span class="required">必須</span>
+          <span class="hint">管理費・共益費を含　月額</span>
+        </label>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <input type="number" name="rent_max" placeholder="例：80000" min="10000" max="500000" step="5000" style="max-width:160px;">
+          <span style="color:var(--gray); font-size:15px;">円まで</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>こだわり条件 <span class="optional">任意</span></label>
+        <div class="chip-group">
+          <input type="checkbox" name="must" id="m1" value="オートロック">
+          <label class="chip" for="m1">🔒 オートロック</label>
+          <input type="checkbox" name="must" id="m2" value="宅配ボックス">
+          <label class="chip" for="m2">📦 宅配ボックス</label>
+          <input type="checkbox" name="must" id="m3" value="バス・トイレ別">
+          <label class="chip" for="m3">🛁 バストイレ別</label>
+          <input type="checkbox" name="must" id="m4" value="ペット可">
+          <label class="chip" for="m4">🐱 ペット可</label>
+          <input type="checkbox" name="must" id="m5" value="駐車場あり">
+          <label class="chip" for="m5">🚗 駐車場あり</label>
+          <input type="checkbox" name="must" id="m6" value="楽器可">
+          <label class="chip" for="m6">🎸 楽器可</label>
+          <input type="checkbox" name="must" id="m7" value="インターネット無料">
+          <label class="chip" for="m7">📶 ネット無料</label>
+          <input type="checkbox" name="must" id="m8" value="築年数新しめ">
+          <label class="chip" for="m8">🏗 築浅希望</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="form-card">
+      <div class="section-label-form">💴 初期費用・その他</div>
+
+      <div class="form-group">
+        <label>初期費用の予算感 <span class="optional">任意</span></label>
+        <div class="chip-group">
+          <input type="radio" name="initial_budget" id="b1" value="家賃1〜2ヶ月分以内">
+          <label class="chip" for="b1">できるだけ抑えたい</label>
+          <input type="radio" name="initial_budget" id="b2" value="家賃3〜4ヶ月分程度">
+          <label class="chip" for="b2">一般的な範囲でOK</label>
+          <input type="radio" name="initial_budget" id="b3" value="こだわらない">
+          <label class="chip" for="b3">こだわらない</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>ライフライン（電気・ガス・ネット）のまとめ契約 <span class="optional">任意</span>
+          <span class="hint">キャッシュバックご希望の場合はお知らせください</span>
+        </label>
+        <div class="chip-group">
+          <input type="radio" name="lifeline" id="li1" value="希望する（キャッシュバックあり）">
+          <label class="chip" for="li1">✅ 希望する（キャッシュバックあり）</label>
+          <input type="radio" name="lifeline" id="li2" value="自分で手配する">
+          <label class="chip" for="li2">自分で手配する</label>
+          <input type="radio" name="lifeline" id="li3" value="詳しく聞きたい">
+          <label class="chip" for="li3">詳しく聞きたい</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- FREE TEXT -->
+    <div class="form-card">
+      <div class="section-label-form">💬 その他・ご要望</div>
+      <div class="form-group">
+        <label>何でも書いてください <span class="optional">任意</span>
+          <span class="hint">「前回の引越しで〇〇が嫌だった」「とにかく安く済ませたい」なててい/gろけときついexample</span>
+        </label>
+        <textarea name="free_text" placeholder="例：騒音が気になりやすいので、角部屋だとうれしいです。初めての一人暮らしで何もわからないので教えてほしいです。"></textarea>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <button type="submit" class="submit-btn">📨 送信して担当者に連絡してもらう</button>
+    <p class="submit-note">送信後�LINEにてすあみならえてきださい</p>
+
+  </form>
+</div>
+
+<!-- COMPLETE SCREEN -->
+<div id="complete-screen">
+  <div class="big-check">✅</div>
+  <h2>送信<span>完了</span>しました！</h2>
+  <p>ご回答ありがとうございます。</p>
+  <p>内容を確認次第、担当者からLINEにてすぐにご連絡します。</p>
+  <div class="line-note">
+    📲 このまま画面を閉じてLINEをお待ちください。<br>
+    営業時間内であれば逧あれば通常30分以内にご連絡します。
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('hearing-form');
+  const progressFill = document.getElementById('progress-fill');
+  const progressLabel = document.getElementById('progress-label');
+
+  // Count required fields and update progress
+  function updateProgress() {
+    const required = form.querySelectorAll('[required]');
+    let filled = 0;
+    required.forEach(el => {
+      if (el.value && el.value.trim() !== '') filled++;
+    });
+    const pct = Math.round((filled / required.length) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = pct === 100
+      ? '✅ 必須項目を入力しました。送信できます！'
+      : `必須項目 ${filled}/${required.length} 入力済み`;
+  }
+
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+  updateProgress();
+
+  // Collect form data as text
+  function collectFormData() {
+    const data = {};
+    const fields = form.elements;
+    for (let el of fields) {
+      if (!el.name) continue;
+      if (el.type === 'checkbox') {
+        if (!data[el.name]) data[el.name] = [];
+        if (el.checked) data[el.name].push(el.value);
+      } else if (el.type === 'radio') {
+        if (el.checked) data[el.name] = el.value;
+      } else {
+        if (el.value) data[el.name] = el.value;
+      }
+    }
+    return data;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Simple validation
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      if (!el.value || el.value.trim() === '') {
+        el.style.borderColor = '#E05050';
+        valid = false;
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        el.style.borderColor = '';
+      }
+    });
+
+    if (!valid) {
+      alert('必須項目（赤枠）を入力してください。');
+      return;
+    }
+
+    const data = collectFormData();
+    console.log('ヒアリングデータ:', data);
+
+    // ここにフォーム送信処理（LINE Messaging API / Googleスプレッドシート等）を追加
+
+    // Show complete screen
+    document.getElementById('form-screen').classList.add('hidden');
+    document.getElementById('complete-screen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
