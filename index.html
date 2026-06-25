@@ -453,8 +453,8 @@
   .hero-btns { flex-direction: column; align-items: center; gap: 12px; }
   .btn-primary, .btn-outline { width: 80%; max-width: 280px; text-align: center; }
 
-  /* 統計バー */
-  .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 12px 8px; padding: 20px 16px; }
+  /* 統計バー 2×2グリッド */
+  .stat-inner { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 8px; }
   .stat-num { font-size: clamp(22px, 6vw, 30px); }
   .stat-label { font-size: 10px; }
 
@@ -499,8 +499,8 @@
   .cta-section h2 { font-size: clamp(22px, 6vw, 32px); }
   .cta-big-btn { width: 90%; max-width: 320px; font-size: 16px; padding: 16px 20px; }
   .float-cta { width: calc(100% - 32px); left: 16px; right: 16px; text-align: center; font-size: 14px; padding: 14px 16px; }
-  /* SCROLL中央揃え */
-  .hero-scroll { left: 50%; right: auto; transform: translateX(-50%); }
+  /* SCROLL中央揃え（高優先度） */
+  .hero .hero-scroll { position: absolute; left: 50%; right: auto; transform: translateX(-50%); bottom: 32px; }
   /* 日本語の途中改行を防ぐ */
   p, .hero-sub, .section-desc { word-break: keep-all; overflow-wrap: anywhere; }
 }
