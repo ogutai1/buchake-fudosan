@@ -32,10 +32,10 @@
   /* ===== HEADER ===== */
   .header {
     background:
-      linear-gradient(180deg, rgba(10,30,10,0.55) 0%, rgba(10,30,10,0.28) 50%, rgba(10,30,10,0.50) 100%),
-      url('https://images.unsplash.com/photo-1748228885250-49564b614db9?w=1600&q=80') center bottom / cover no-repeat;
+      linear-gradient(180deg, rgba(10,30,10,0.52) 0%, rgba(10,30,10,0.22) 45%, rgba(10,30,10,0.45) 100%),
+      url('https://images.unsplash.com/photo-1748228885250-49564b614db9?w=1600&q=80') center 55% / 120% auto no-repeat;
     color: white;
-    padding: 48px 20px 120px;
+    padding: 28px 20px 24px;
     text-align: center;
   }
   .header .badge {
@@ -55,7 +55,7 @@
   }
   .header p {
     font-size: 13px;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.65);
   }
 
   /* ===== PROGRESS ===== */
@@ -847,8 +847,10 @@
   const progressFill = document.getElementById('progress-fill');
   const progressLabel = document.getElementById('progress-label');
 
+  // Count required fields and update progress
   function updateProgress() {
     const requiredInputs = form.querySelectorAll('input[required], select[required]');
+    // For radio groups, treat each group as one field
     const radioGroups = new Set();
     const nonRadioRequired = [];
     requiredInputs.forEach(el => {
@@ -869,6 +871,7 @@
       if (form.querySelector(`input[name="${groupName}"]:checked`)) filled++;
     });
 
+    // Also check layout checkbox group (required)
     const layoutChecked = form.querySelectorAll('input[name="layout"]:checked').length > 0;
     total += 1;
     if (layoutChecked) filled++;
@@ -884,6 +887,7 @@
   form.addEventListener('change', updateProgress);
   updateProgress();
 
+  // Collect form data as object
   function collectFormData() {
     const data = {};
     const fields = form.elements;
@@ -901,6 +905,7 @@
     return data;
   }
 
+  // Send notification to Slack via API
   async function sendToSlack(data) {
     try {
       const res = await fetch('/api/submit', {
@@ -917,6 +922,7 @@
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
+    // Validate required text/select fields
     const requiredFields = form.querySelectorAll('input[required]:not([type="radio"]), select[required]');
     let valid = true;
     let firstInvalid = null;
@@ -931,12 +937,14 @@
       }
     });
 
+    // Validate occupation (radio, required)
     const occupationChecked = form.querySelector('input[name="occupation"]:checked');
     if (!occupationChecked) {
       valid = false;
       if (!firstInvalid) firstInvalid = form.querySelector('input[name="occupation"]');
     }
 
+    // Validate layout (checkbox, required: at least one)
     const layoutChecked = form.querySelectorAll('input[name="layout"]:checked').length > 0;
     if (!layoutChecked) {
       valid = false;
@@ -951,16 +959,19 @@
 
     const data = collectFormData();
 
+    // Show loading state
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.disabled = true;
     submitBtn.textContent = '送信中...';
 
+    // Send to Slack
     await sendToSlack(data);
 
+    // Show complete screen
     document.getElementById('form-screen').classList.add('hidden');
     document.getElementById('complete-screen').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 </body>
-  </html>
+            </html>
