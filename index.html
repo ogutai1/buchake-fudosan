@@ -63,6 +63,7 @@
     text-align: center;
     padding: 120px 24px 100px;
     overflow: hidden;
+    background-color: #0a1e06; /* 背景画像が読み込めない場合のフォールバック */
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
@@ -184,8 +185,10 @@
   .stat-item { text-align: center; }
   .stat-num {
     font-size: clamp(26px, 5vw, 38px); font-weight: 900; color: var(--black);
-    display: block; line-height: 1;
+    display: inline; line-height: 1;
   }
+  .stat-unit { font-size: clamp(14px, 2.5vw, 18px); font-weight: 800; color: var(--black); }
+  .stat-row { display: block; line-height: 1; margin-bottom: 4px; }
   .stat-label { font-size: 11px; font-weight: 700; color: rgba(0,0,0,0.55); margin-top: 5px; }
 
   /* ── SECTIONS ── */
@@ -458,7 +461,7 @@
   </h1>
 
   <p class="hero-sub">
-    同じ物件を探すなら、手数料が安くて対応が早くキャッシュバックもある業者を選ぶべき理由を、正直に話します。
+    同じ物件を探すなら、手数料が安かて対応が早かキャッシマバックもある業者を選ぶべき理由を、正直に話します。
   </p>
 
   <div class="hero-btns">
@@ -476,20 +479,20 @@
 <div class="stat-bar">
   <div class="stat-inner">
     <div class="stat-item">
-      <span class="stat-num" data-count="0">0</span>
-      <div class="stat-label">仲介手数料 〇円〜</div>
+      <span class="stat-row"><span class="stat-num" data-count="0">0</span><span class="stat-unit">円〜</span></span>
+      <div class="stat-label">仲介手数料</div>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-count="30">0</span>
-      <div class="stat-label">問い合わせ後〜分以内に返信</div>
+      <span class="stat-row"><span class="stat-num" data-count="30">0</span><span class="stat-unit">分</span></span>
+      <div class="stat-label">問い合わせ後以内に返信</div>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-count="2">0</span>
-      <div class="stat-label">業者が使えるDBはたった〇つ</div>
+      <span class="stat-row"><span class="stat-num" data-count="2">0</span><span class="stat-unit">つ</span></span>
+      <div class="stat-label">業者が使えるDBはたった</div>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-count="100">0</span>
-      <div class="stat-label">% 相談無料</div>
+      <span class="stat-row"><span class="stat-num" data-count="100">0</span><span class="stat-unit">%</span></span>
+      <div class="stat-label">相談無料</div>
     </div>
   </div>
 </div>
@@ -532,7 +535,7 @@
         <div class="truth-num">01</div>
         <div class="truth-body">
           <h3>業者が見られるDBは「2つ」だけ</h3>
-          <p>不動産業者が物件を探すとき、実際に使えるのは<strong>「レインズ」と「ATBB」の2つだけ</strong>。SUUMOやHOME'Sはここからデータを転載しているだけです。</p>
+          <p>不動産業者が物件を探すとき、実際に使えるは<strong>「ヌレインズ」と「ATBB」の2つだけ</strong>。SUUMOやHOME'Sはここからデータを転載しているだけです。</p>
           <div class="truth-hl">✅ どの業者に行っても、同じDBから探しています</div>
         </div>
       </div>
@@ -561,7 +564,7 @@
   <div class="container">
     <div class="section-label">お金の話</div>
     <h2 class="section-title reveal">仲介手数料の<span class="hi">仕組み</span>、正直に言います</h2>
-    <p class="section-desc reveal">「なぜ払うは？払わなくていいケースは？」を包み隠さずお伝えします。</p>
+    <p class="section-desc reveal">「なぜ払うの？払わなくていいケースは？」を包み隠さずお伝えします。</p>
     <div class="fee-visual reveal">
       <div class="fee-header">💰 ぶっちゃけ不動産の料金体系</div>
       <div class="fee-body">
@@ -570,7 +573,7 @@
           <span class="fee-row-val">手数料 <strong>0円</strong></span>
         </div>
         <div class="fee-row">
-          <span class="fee-row-label">紹介料がなぅ物件</span>
+          <span class="fee-row-label">紹介料がない物件</span>
           <span class="fee-row-val">MAX <strong>家賃0.5ヶ月分</strong></span>
         </div>
         <div class="fee-row">
@@ -635,7 +638,7 @@
         <div class="str-icon">💬</div>
         <div class="str-text">
           <strong>デメリットも正直に伝える</strong>
-          <span>都合の悪いことも隠しません。納得した上で決めてもらうのが方針です。</span>
+          <span>都合の悪いことも隠しません。納得した上で決めてらうのが方針です。</span>
         </div>
       </div>
       <div class="str-item reveal delay-3">
@@ -643,7 +646,7 @@
         <div class="str-text">
           <strong>手数料は業界最低水準</strong>
           <span>0円〜最大0.5ヶ月分。一般業者の半額以下を徹底。</span>
-        </div>
+           </div>
       </div>
       <div class="str-item reveal delay-4">
         <div class="str-icon">🎁</div>
@@ -771,17 +774,6 @@ const cntObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 statNums.forEach(el => cntObserver.observe(el));
 
-/* ── 手数料バー ── */
+/* ── 手数料バc�� ── */
 const feeBar = document.getElementById('feeBar');
-const feeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { setTimeout(() => { feeBar.style.width = '50%'; }, 300); feeObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.5 });
-if (feeBar) feeObserver.observe(feeBar);
-
-/* ── スムーズスクロール ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.
+const feeObserver =
