@@ -161,7 +161,7 @@
     position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 8px;
     color: rgba(255,255,255,0.45); font-size: 10px; letter-spacing: 0.12em;
-    animation: fadeUp 1s ease 1.6s both; z-index: 3;
+    animation: scrollFadeUp 1s ease 1.6s both; z-index: 3;
   }
   .scroll-line {
     width: 1px; height: 40px;
@@ -434,6 +434,7 @@
   /* ── KEYFRAMES ── */
   @keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
   @keyframes fadeDown { from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes scrollFadeUp { from{opacity:0;transform:translateX(-50%) translateY(28px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
 
 /* ═══════════════════════════════════════
    モバイル対応 (768px以下)
