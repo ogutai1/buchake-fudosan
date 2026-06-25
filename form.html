@@ -199,15 +199,6 @@
     font-weight: 700;
   }
 
-  /* RANGE INPUT */
-  .range-row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  .range-row input { flex: 1; }
-  .range-sep { color: var(--gray); font-size: 14px; flex-shrink: 0; }
-
   /* SECTION LABEL */
   .section-label-form {
     font-size: 12px;
@@ -218,6 +209,48 @@
     margin-bottom: 14px;
     padding-bottom: 8px;
     border-bottom: 2px solid var(--green-light);
+  }
+
+  /* PRIORITY GRID */
+  .priority-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .priority-table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .priority-table th {
+    text-align: center;
+    padding: 8px 6px;
+    font-size: 12px;
+    color: var(--gray);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+  }
+  .priority-table th:first-child { text-align: left; }
+  .priority-table td {
+    text-align: center;
+    padding: 10px 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .priority-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--black);
+  }
+  .priority-table input[type="radio"] {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--green-dark);
+    border: 2px solid var(--border);
   }
 
   /* SUBMIT */
@@ -238,6 +271,7 @@
   }
   .submit-btn:hover { background: var(--green-deep); transform: translateY(-2px); }
   .submit-btn:active { transform: translateY(0); }
+  .submit-btn:disabled { background: #aaa; cursor: not-allowed; transform: none; }
 
   .submit-note {
     text-align: center;
@@ -315,6 +349,11 @@
       </div>
 
       <div class="form-group">
+        <label>フリガナ <span class="required">必須</span></label>
+        <input type="text" name="furigana" placeholder="例：ヤマダ タロウ" required>
+      </div>
+
+      <div class="form-group">
         <label>LINEの表示名 <span class="optional">任意</span>
           <span class="hint">確認のためあると助かります</span>
         </label>
@@ -324,6 +363,24 @@
       <div class="form-group">
         <label>電話番号 <span class="optional">任意</span></label>
         <input type="tel" name="phone" placeholder="例：090-0000-0000">
+      </div>
+
+      <div class="form-group">
+        <label>現在のご職業 <span class="required">必須</span></label>
+        <div class="chip-group">
+          <input type="radio" name="occupation" id="oc1" value="会社員・公務員" required>
+          <label class="chip" for="oc1">🏢 会社員・公務員</label>
+          <input type="radio" name="occupation" id="oc2" value="アルバイト・パート">
+          <label class="chip" for="oc2">🕐 アルバイト・パート</label>
+          <input type="radio" name="occupation" id="oc3" value="自営業・フリーランス">
+          <label class="chip" for="oc3">💼 自営業・フリーランス</label>
+          <input type="radio" name="occupation" id="oc4" value="学生">
+          <label class="chip" for="oc4">🎓 学生</label>
+          <input type="radio" name="occupation" id="oc5" value="転職活動中">
+          <label class="chip" for="oc5">🔍 転職活動中</label>
+          <input type="radio" name="occupation" id="oc6" value="無職">
+          <label class="chip" for="oc6">その他・無職</label>
+        </div>
       </div>
     </div>
 
@@ -340,6 +397,24 @@
           <option>2〜3ヶ月以内</option>
           <option>3ヶ月以上先</option>
           <option>まだ未定</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>現住居の退去日 <span class="optional">任意</span>
+          <span class="hint">現在お住まいの物件の退去予定日</span>
+        </label>
+        <select name="vacancy_date">
+          <option value="" selected>選択してください</option>
+          <option>退去済み／現在空き</option>
+          <option>今月末</option>
+          <option>翌月末</option>
+          <option>2ヶ月後の月末</option>
+          <option>3ヶ月後の月末</option>
+          <option>4〜6ヶ月後</option>
+          <option>6ヶ月以上先</option>
+          <option>未定・交渉中</option>
+          <option>初めての賃貸（退去なし）</option>
         </select>
       </div>
 
@@ -380,20 +455,38 @@
           <label class="chip" for="w2">🚶 10分以内</label>
           <input type="radio" name="walk_min" id="w3" value="15分以内">
           <label class="chip" for="w3">15分以内</label>
-          <input type="radio" name="walk_min" id="w4" value="こだわらない">
-          <label class="chip" for="w4">🆓 こだわらない</label>
+          <input type="radio" name="walk_min" id="w4" value="20分以内">
+          <label class="chip" for="w4">20分以内</label>
+          <input type="radio" name="walk_min" id="w5" value="こだわらない">
+          <label class="chip" for="w5">🆓 こだわらない</label>
         </div>
       </div>
     </div>
 
-    <!-- ROOM -->
+    <!-- ROOM CONDITIONS -->
     <div class="form-card">
       <div class="section-label-form">🛋 お部屋の条件</div>
 
       <div class="form-group">
+        <label>物件種目 <span class="optional">任意</span></label>
+        <div class="chip-group">
+          <input type="checkbox" name="property_type" id="pt1" value="マンション">
+          <label class="chip" for="pt1">🏢 マンション</label>
+          <input type="checkbox" name="property_type" id="pt2" value="アパート">
+          <label class="chip" for="pt2">🏠 アパート</label>
+          <input type="checkbox" name="property_type" id="pt3" value="戸建住宅">
+          <label class="chip" for="pt3">🏡 戸建住宅</label>
+          <input type="checkbox" name="property_type" id="pt4" value="テラスハウス・タウンハウス">
+          <label class="chip" for="pt4">🏘 テラス・タウンハウス</label>
+          <input type="checkbox" name="property_type" id="pt5" value="こだわらない">
+          <label class="chip" for="pt5">🆓 こだわらない</label>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label>間取り <span class="required">必須</span></label>
         <div class="chip-group">
-          <input type="checkbox" name="layout" id="l1" value="ワンルーム">
+          <input type="checkbox" name="layout" id="l1" value="ワンルーム（1R）">
           <label class="chip" for="l1">ワンルーム</label>
           <input type="checkbox" name="layout" id="l2" value="1K">
           <label class="chip" for="l2">1K</label>
@@ -401,23 +494,87 @@
           <label class="chip" for="l3">1DK</label>
           <input type="checkbox" name="layout" id="l4" value="1LDK">
           <label class="chip" for="l4">1LDK</label>
-          <input type="checkbox" name="layout" id="l5" value="2K以上">
-          <label class="chip" for="l5">2K以上</label>
+          <input type="checkbox" name="layout" id="l5" value="2DK">
+          <label class="chip" for="l5">2DK</label>
+          <input type="checkbox" name="layout" id="l6" value="2LDK">
+          <label class="chip" for="l6">2LDK</label>
+          <input type="checkbox" name="layout" id="l7" value="3LDK以上">
+          <label class="chip" for="l7">3LDK以上</label>
+          <input type="checkbox" name="layout" id="l8" value="こだわらない">
+          <label class="chip" for="l8">こだわらない</label>
         </div>
       </div>
 
       <div class="form-group">
+        <label>専有面積（下限） <span class="optional">任意</span>
+          <span class="hint">最低限ほしい広さ</span>
+        </label>
+        <select name="min_area">
+          <option value="">こだわらない</option>
+          <option>15㎡以上</option>
+          <option>20㎡以上</option>
+          <option>25㎡以上</option>
+          <option>30㎡以上</option>
+          <option>35㎡以上</option>
+          <option>40㎡以上</option>
+          <option>50㎡以上</option>
+          <option>60㎡以上</option>
+          <option>70㎡以上</option>
+          <option>80㎡以上</option>
+          <option>100㎡以上</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label>家賃の上限 <span class="required">必須</span>
-          <span class="hint">管理費・共益費を含　月額</span>
+          <span class="hint">管理費・共益費を含む　月額</span>
         </label>
         <div style="display:flex; align-items:center; gap:8px;">
-          <input type="number" name="rent_max" placeholder="例：80000" min="10000" max="500000" step="5000" style="max-width:160px;">
+          <input type="number" name="rent_max" placeholder="例：80000" min="10000" max="500000" step="5000" style="max-width:160px;" required>
           <span style="color:var(--gray); font-size:15px;">円まで</span>
         </div>
       </div>
 
       <div class="form-group">
-        <label>こだわり条件 <span class="optional">任意</span></label>
+        <label>築年数 <span class="optional">任意</span></label>
+        <div class="chip-group">
+          <input type="radio" name="building_age" id="ba1" value="新築のみ">
+          <label class="chip" for="ba1">✨ 新築のみ</label>
+          <input type="radio" name="building_age" id="ba2" value="3年以内">
+          <label class="chip" for="ba2">3年以内</label>
+          <input type="radio" name="building_age" id="ba3" value="5年以内">
+          <label class="chip" for="ba3">5年以内</label>
+          <input type="radio" name="building_age" id="ba4" value="10年以内">
+          <label class="chip" for="ba4">10年以内</label>
+          <input type="radio" name="building_age" id="ba5" value="15年以内">
+          <label class="chip" for="ba5">15年以内</label>
+          <input type="radio" name="building_age" id="ba6" value="20年以内">
+          <label class="chip" for="ba6">20年以内</label>
+          <input type="radio" name="building_age" id="ba7" value="こだわらない">
+          <label class="chip" for="ba7">こだわらない</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>建物構造 <span class="optional">任意</span></label>
+        <div class="chip-group">
+          <input type="checkbox" name="structure" id="st1" value="木造">
+          <label class="chip" for="st1">木造</label>
+          <input type="checkbox" name="structure" id="st2" value="軽量鉄骨造">
+          <label class="chip" for="st2">軽量鉄骨造</label>
+          <input type="checkbox" name="structure" id="st3" value="鉄骨造">
+          <label class="chip" for="st3">鉄骨造</label>
+          <input type="checkbox" name="structure" id="st4" value="RC（鉄筋コンクリート）">
+          <label class="chip" for="st4">RC造</label>
+          <input type="checkbox" name="structure" id="st5" value="SRC（鉄骨鉄筋コンクリート）">
+          <label class="chip" for="st5">SRC造</label>
+          <input type="checkbox" name="structure" id="st6" value="こだわらない">
+          <label class="chip" for="st6">こだわらない</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>絶対条件（必ず必要な条件） <span class="optional">任意</span></label>
         <div class="chip-group">
           <input type="checkbox" name="must" id="m1" value="オートロック">
           <label class="chip" for="m1">🔒 オートロック</label>
@@ -425,16 +582,114 @@
           <label class="chip" for="m2">📦 宅配ボックス</label>
           <input type="checkbox" name="must" id="m3" value="バス・トイレ別">
           <label class="chip" for="m3">🛁 バストイレ別</label>
-          <input type="checkbox" name="must" id="m4" value="ペット可">
-          <label class="chip" for="m4">🐱 ペット可</label>
-          <input type="checkbox" name="must" id="m5" value="駐車場あり">
-          <label class="chip" for="m5">🚗 駐車場あり</label>
-          <input type="checkbox" name="must" id="m6" value="楽器可">
-          <label class="chip" for="m6">🎸 楽器可</label>
-          <input type="checkbox" name="must" id="m7" value="インターネット無料">
-          <label class="chip" for="m7">📶 ネット無料</label>
-          <input type="checkbox" name="must" id="m8" value="築年数新しめ">
-          <label class="chip" for="m8">🏗 築浅希望</label>
+          <input type="checkbox" name="must" id="m4" value="独立洗面台">
+          <label class="chip" for="m4">🚿 独立洗面台</label>
+          <input type="checkbox" name="must" id="m5" value="追い焚き風呂">
+          <label class="chip" for="m5">♨️ 追い焚き</label>
+          <input type="checkbox" name="must" id="m6" value="浴室乾燥機">
+          <label class="chip" for="m6">💨 浴室乾燥機</label>
+          <input type="checkbox" name="must" id="m7" value="温水洗浄便座">
+          <label class="chip" for="m7">🚽 ウォシュレット</label>
+          <input type="checkbox" name="must" id="m8" value="ガスコンロ">
+          <label class="chip" for="m8">🔥 ガスコンロ</label>
+          <input type="checkbox" name="must" id="m9" value="IHコンロ">
+          <label class="chip" for="m9">⚡ IHコンロ</label>
+          <input type="checkbox" name="must" id="m10" value="室内洗濯機置場">
+          <label class="chip" for="m10">👕 室内洗濯機置場</label>
+          <input type="checkbox" name="must" id="m11" value="エアコン付き">
+          <label class="chip" for="m11">❄️ エアコン付き</label>
+          <input type="checkbox" name="must" id="m12" value="ペット可">
+          <label class="chip" for="m12">🐱 ペット可</label>
+          <input type="checkbox" name="must" id="m13" value="駐車場あり">
+          <label class="chip" for="m13">🚗 駐車場あり</label>
+          <input type="checkbox" name="must" id="m14" value="駐輪場あり">
+          <label class="chip" for="m14">🚲 駐輪場あり</label>
+          <input type="checkbox" name="must" id="m15" value="楽器可">
+          <label class="chip" for="m15">🎸 楽器可</label>
+          <input type="checkbox" name="must" id="m16" value="インターネット無料">
+          <label class="chip" for="m16">📶 ネット無料</label>
+          <input type="checkbox" name="must" id="m17" value="築浅希望">
+          <label class="chip" for="m17">🏗 築浅希望</label>
+          <input type="checkbox" name="must" id="m18" value="TVモニタ付インターホン">
+          <label class="chip" for="m18">📷 TVモニタ付</label>
+          <input type="checkbox" name="must" id="m19" value="南向き">
+          <label class="chip" for="m19">☀️ 南向き</label>
+          <input type="checkbox" name="must" id="m20" value="角部屋">
+          <label class="chip" for="m20">📐 角部屋</label>
+          <input type="checkbox" name="must" id="m21" value="2階以上">
+          <label class="chip" for="m21">🔼 2階以上</label>
+          <input type="checkbox" name="must" id="m22" value="バルコニー付">
+          <label class="chip" for="m22">🌿 バルコニー付</label>
+          <input type="checkbox" name="must" id="m23" value="2人入居可">
+          <label class="chip" for="m23">👥 2人入居可</label>
+          <input type="checkbox" name="must" id="m24" value="敷金なし">
+          <label class="chip" for="m24">💰 敷金なし</label>
+          <input type="checkbox" name="must" id="m25" value="礼金なし">
+          <label class="chip" for="m25">💰 礼金なし</label>
+          <input type="checkbox" name="must" id="m26" value="フリーレント">
+          <label class="chip" for="m26">🆓 フリーレント</label>
+          <input type="checkbox" name="must" id="m27" value="保証人不要">
+          <label class="chip" for="m27">✅ 保証人不要</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>希望条件（あると嬉しい条件） <span class="optional">任意</span></label>
+        <div class="chip-group">
+          <input type="checkbox" name="nice" id="n1" value="オートロック">
+          <label class="chip" for="n1">🔒 オートロック</label>
+          <input type="checkbox" name="nice" id="n2" value="宅配ボックス">
+          <label class="chip" for="n2">📦 宅配ボックス</label>
+          <input type="checkbox" name="nice" id="n3" value="バス・トイレ別">
+          <label class="chip" for="n3">🛁 バストイレ別</label>
+          <input type="checkbox" name="nice" id="n4" value="独立洗面台">
+          <label class="chip" for="n4">🚿 独立洗面台</label>
+          <input type="checkbox" name="nice" id="n5" value="追い焚き風呂">
+          <label class="chip" for="n5">♨️ 追い焚き</label>
+          <input type="checkbox" name="nice" id="n6" value="浴室乾燥機">
+          <label class="chip" for="n6">💨 浴室乾燥機</label>
+          <input type="checkbox" name="nice" id="n7" value="温水洗浄便座">
+          <label class="chip" for="n7">🚽 ウォシュレット</label>
+          <input type="checkbox" name="nice" id="n8" value="ガスコンロ">
+          <label class="chip" for="n8">🔥 ガスコンロ</label>
+          <input type="checkbox" name="nice" id="n9" value="IHコンロ">
+          <label class="chip" for="n9">⚡ IHコンロ</label>
+          <input type="checkbox" name="nice" id="n10" value="室内洗濯機置場">
+          <label class="chip" for="n10">👕 室内洗濯機置場</label>
+          <input type="checkbox" name="nice" id="n11" value="エアコン付き">
+          <label class="chip" for="n11">❄️ エアコン付き</label>
+          <input type="checkbox" name="nice" id="n12" value="ペット可">
+          <label class="chip" for="n12">🐱 ペット可</label>
+          <input type="checkbox" name="nice" id="n13" value="駐車場あり">
+          <label class="chip" for="n13">🚗 駐車場あり</label>
+          <input type="checkbox" name="nice" id="n14" value="駐輪場あり">
+          <label class="chip" for="n14">🚲 駐輪場あり</label>
+          <input type="checkbox" name="nice" id="n15" value="楽器可">
+          <label class="chip" for="n15">🎸 楽器可</label>
+          <input type="checkbox" name="nice" id="n16" value="インターネット無料">
+          <label class="chip" for="n16">📶 ネット無料</label>
+          <input type="checkbox" name="nice" id="n17" value="TVモニタ付インターホン">
+          <label class="chip" for="n17">📷 TVモニタ付</label>
+          <input type="checkbox" name="nice" id="n18" value="南向き">
+          <label class="chip" for="n18">☀️ 南向き</label>
+          <input type="checkbox" name="nice" id="n19" value="角部屋">
+          <label class="chip" for="n19">📐 角部屋</label>
+          <input type="checkbox" name="nice" id="n20" value="2階以上">
+          <label class="chip" for="n20">🔼 2階以上</label>
+          <input type="checkbox" name="nice" id="n21" value="バルコニー付">
+          <label class="chip" for="n21">🌿 バルコニー付</label>
+          <input type="checkbox" name="nice" id="n22" value="2人入居可">
+          <label class="chip" for="n22">👥 2人入居可</label>
+          <input type="checkbox" name="nice" id="n23" value="敷金なし">
+          <label class="chip" for="n23">💰 敷金なし</label>
+          <input type="checkbox" name="nice" id="n24" value="礼金なし">
+          <label class="chip" for="n24">💰 礼金なし</label>
+          <input type="checkbox" name="nice" id="n25" value="フリーレント">
+          <label class="chip" for="n25">🆓 フリーレント</label>
+          <input type="checkbox" name="nice" id="n26" value="築浅希望">
+          <label class="chip" for="n26">🏗 築浅希望</label>
+          <input type="checkbox" name="nice" id="n27" value="保証人不要">
+          <label class="chip" for="n27">✅ 保証人不要</label>
         </div>
       </div>
     </div>
@@ -470,20 +725,105 @@
       </div>
     </div>
 
+    <!-- PRIORITY -->
+    <div class="form-card">
+      <div class="section-label-form">⭐ 優先順位</div>
+      <div class="form-group">
+        <label>各条件の優先度を教えてください <span class="optional">任意</span>
+          <span class="hint">横スクロールでご覧いただけます</span>
+        </label>
+        <div class="priority-scroll">
+          <table class="priority-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>最優先</th>
+                <th>重要</th>
+                <th>普通</th>
+                <th>あまり重要でない</th>
+                <th>こだわらない</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>① 家賃</td>
+                <td><input type="radio" name="priority_rent" value="最優先"></td>
+                <td><input type="radio" name="priority_rent" value="重要"></td>
+                <td><input type="radio" name="priority_rent" value="普通"></td>
+                <td><input type="radio" name="priority_rent" value="あまり重要でない"></td>
+                <td><input type="radio" name="priority_rent" value="こだわらない"></td>
+              </tr>
+              <tr>
+                <td>② 間取り</td>
+                <td><input type="radio" name="priority_layout" value="最優先"></td>
+                <td><input type="radio" name="priority_layout" value="重要"></td>
+                <td><input type="radio" name="priority_layout" value="普通"></td>
+                <td><input type="radio" name="priority_layout" value="あまり重要でない"></td>
+                <td><input type="radio" name="priority_layout" value="こだわらない"></td>
+              </tr>
+              <tr>
+                <td>③ 専有面積</td>
+                <td><input type="radio" name="priority_area_size" value="最優先"></td>
+                <td><input type="radio" name="priority_area_size" value="重要"></td>
+                <td><input type="radio" name="priority_area_size" value="普通"></td>
+                <td><input type="radio" name="priority_area_size" value="あまり重要でない"></td>
+                <td><input type="radio" name="priority_area_size" value="こだわらない"></td>
+              </tr>
+              <tr>
+                <td>④ 築年数</td>
+                <td><input type="radio" name="priority_age" value="最優先"></td>
+                <td><input type="radio" name="priority_age" value="重要"></td>
+                <td><input type="radio" name="priority_age" value="普通"></td>
+                <td><input type="radio" name="priority_age" value="あまり重要でない"></td>
+                <td><input type="radio" name="priority_age" value="こだわらない"></td>
+              </tr>
+              <tr>
+                <td>⑤ エリア・沿線</td>
+                <td><input type="radio" name="priority_location" value="最優先"></td>
+                <td><input type="radio" name="priority_location" value="重要"></td>
+                <td><input type="radio" name="priority_location" value="普通"></td>
+                <td><input type="radio" name="priority_location" value="あまり重要でない"></td>
+                <td><input type="radio" name="priority_location" value="こだわらない"></td>
+              </tr>
+              <tr>
+                <td>⑥ 駅徒歩</td>
+                <td><input type="radio" name="priority_walk" value="最優先"></td>
+                <td><input type="radio" name="priority_walk" value="重要"></td>
+                <td><input type="radio" name="priority_walk" value="普通"></td>
+                <td><input type="radio" name="priority_walk" value="あまり重要でない"></td>
+                <td><input type="radio" name="priority_walk" value="こだわらない"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- CANDIDATE PROPERTIES -->
+    <div class="form-card">
+      <div class="section-label-form">🔍 気になる物件</div>
+      <div class="form-group">
+        <label>気になる候補物件のURL <span class="optional">任意</span>
+          <span class="hint">SUUMOなどで見つけた物件があれば貼り付けてください。複数ある場合は改行して入力。</span>
+        </label>
+        <textarea name="property_urls" placeholder="例：https://suumo.jp/chintai/jnc_xxxxxxxx/&#10;https://suumo.jp/chintai/jnc_xxxxxxxx/" rows="3"></textarea>
+      </div>
+    </div>
+
     <!-- FREE TEXT -->
     <div class="form-card">
       <div class="section-label-form">💬 その他・ご要望</div>
       <div class="form-group">
         <label>何でも書いてください <span class="optional">任意</span>
-          <span class="hint">「前回の引越しで〇〇が嫌だった」「とにかく安く済ませたい」なててい/gろけときついexample</span>
+          <span class="hint">「前回の引越しで〇〇が嫌だった」「とにかく安く済ませたい」など、なんでもどうぞ</span>
         </label>
         <textarea name="free_text" placeholder="例：騒音が気になりやすいので、角部屋だとうれしいです。初めての一人暮らしで何もわからないので教えてほしいです。"></textarea>
       </div>
     </div>
 
     <!-- SUBMIT -->
-    <button type="submit" class="submit-btn">📨 送信して担当者に連絡してもらう</button>
-    <p class="submit-note">送信後�LINEにてすあみならえてきださい</p>
+    <button type="submit" class="submit-btn" id="submit-btn">📨 送信して担当者に連絡してもらう</button>
+    <p class="submit-note">送信後、担当者からLINEにてご連絡します</p>
 
   </form>
 </div>
@@ -496,7 +836,7 @@
   <p>内容を確認次第、担当者からLINEにてすぐにご連絡します。</p>
   <div class="line-note">
     📲 このまま画面を閉じてLINEをお待ちください。<br>
-    営業時間内であれば逧あれば通常30分以内にご連絡します。
+    営業時間内であれば通常30分以内にご連絡します。
   </div>
 </div>
 
@@ -507,23 +847,45 @@
 
   // Count required fields and update progress
   function updateProgress() {
-    const required = form.querySelectorAll('[required]');
+    const requiredInputs = form.querySelectorAll('input[required], select[required]');
+    // For radio groups, treat each group as one field
+    const radioGroups = new Set();
+    const nonRadioRequired = [];
+    requiredInputs.forEach(el => {
+      if (el.type === 'radio') {
+        radioGroups.add(el.name);
+      } else {
+        nonRadioRequired.push(el);
+      }
+    });
+
+    let total = nonRadioRequired.length + radioGroups.size;
     let filled = 0;
-    required.forEach(el => {
+
+    nonRadioRequired.forEach(el => {
       if (el.value && el.value.trim() !== '') filled++;
     });
-    const pct = Math.round((filled / required.length) * 100);
+    radioGroups.forEach(groupName => {
+      if (form.querySelector(`input[name="${groupName}"]:checked`)) filled++;
+    });
+
+    // Also check layout checkbox group (required)
+    const layoutChecked = form.querySelectorAll('input[name="layout"]:checked').length > 0;
+    total += 1;
+    if (layoutChecked) filled++;
+
+    const pct = Math.round((filled / total) * 100);
     progressFill.style.width = pct + '%';
     progressLabel.textContent = pct === 100
       ? '✅ 必須項目を入力しました。送信できます！'
-      : `必須項目 ${filled}/${required.length} 入力済み`;
+      : `必須項目 ${filled}/${total} 入力済み`;
   }
 
   form.addEventListener('input', updateProgress);
   form.addEventListener('change', updateProgress);
   updateProgress();
 
-  // Collect form data as text
+  // Collect form data as object
   function collectFormData() {
     const data = {};
     const fields = form.elements;
@@ -541,31 +903,67 @@
     return data;
   }
 
-  form.addEventListener('submit', function(e) {
+  // Send notification to Slack via API
+  async function sendToSlack(data) {
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) console.warn('Slack通知に失敗しました');
+    } catch (e) {
+      console.warn('Slack通知エラー:', e);
+    }
+  }
+
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    // Simple validation
-    const required = form.querySelectorAll('[required]');
+    // Validate required text/select fields
+    const requiredFields = form.querySelectorAll('input[required]:not([type="radio"]), select[required]');
     let valid = true;
-    required.forEach(el => {
+    let firstInvalid = null;
+
+    requiredFields.forEach(el => {
       if (!el.value || el.value.trim() === '') {
         el.style.borderColor = '#E05050';
         valid = false;
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (!firstInvalid) firstInvalid = el;
       } else {
         el.style.borderColor = '';
       }
     });
 
+    // Validate occupation (radio, required)
+    const occupationChecked = form.querySelector('input[name="occupation"]:checked');
+    if (!occupationChecked) {
+      valid = false;
+      if (!firstInvalid) firstInvalid = form.querySelector('input[name="occupation"]');
+    }
+
+    // Validate layout (checkbox, required: at least one)
+    const layoutChecked = form.querySelectorAll('input[name="layout"]:checked').length > 0;
+    if (!layoutChecked) {
+      valid = false;
+      if (!firstInvalid) firstInvalid = form.querySelector('input[name="layout"]');
+    }
+
     if (!valid) {
-      alert('必須項目（赤枠）を入力してください。');
+      alert('必須項目（赤枠）を入力し、職業・間取りを選択してください。');
+      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
     const data = collectFormData();
-    console.log('ヒアリングデータ:', data);
 
-    // ここにフォーム送信処理（LINE Messaging API / Googleスプレッドシート等）を追加
+    // Show loading state
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+
+    // Send to Slack
+    await sendToSlack(data);
 
     // Show complete screen
     document.getElementById('form-screen').classList.add('hidden');
@@ -574,4 +972,4 @@
   });
 </script>
 </body>
-</html>
+  </html>
