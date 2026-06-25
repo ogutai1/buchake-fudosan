@@ -777,3 +777,20 @@ statNums.forEach(el => cntObserver.observe(el));
 /* ── 手数料バc�� ── */
 const feeBar = document.getElementById('feeBar');
 const feeObserver =
+ new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { setTimeout(() => { feeBar.style.width = '50%'; }, 300); feeObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.5 });
+if (feeBar) feeObserver.observe(feeBar);
+
+/* ── スムーズスクロール ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
