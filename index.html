@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ぶっちゃけ不動産｜正直に話します、引越し探しの真実</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5G4VSNQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SF5G4VSNQD');
+</script>
 <style>
   :root {
     --green:       #96C96B;
@@ -17,7 +25,6 @@
     --gray-light:  #F5F7F2;
     --white:       #FFFFFF;
   }
-
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
@@ -27,7 +34,6 @@
     line-height: 1.7;
     overflow-x: hidden;
   }
-
   /* ── NAVBAR ── */
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -53,7 +59,6 @@
     box-shadow: 0 2px 12px var(--green-glow);
   }
   .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 4px 20px var(--green-glow); }
-
   /* ── HERO（背景画像） ── */
   .hero {
     min-height: 100vh;
@@ -93,7 +98,6 @@
     background-size: 50px 50px;
   }
   .hero > * { position: relative; z-index: 3; }
-
   .hero-badge {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(150,201,107,0.15);
@@ -105,7 +109,6 @@
   }
   .hero-badge .dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
-
   .hero h1 {
     font-size: clamp(28px, 7.5vw, 56px);
     font-weight: 900; line-height: 1.25;
@@ -125,7 +128,6 @@
     animation: lineIn 0.6s ease 1.4s forwards;
   }
   @keyframes lineIn { to { transform: scaleX(1); } }
-
   .hero-sub {
     font-size: clamp(14px, 2.5vw, 17px);
     color: rgba(255,255,255,0.82);
@@ -133,7 +135,6 @@
     text-shadow: 0 1px 10px rgba(0,0,0,0.5);
     animation: fadeUp 0.9s ease 0.6s both;
   }
-
   .hero-btns {
     display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
     animation: fadeUp 0.9s ease 0.8s both;
@@ -156,7 +157,6 @@
     transition: border-color 0.2s, background 0.2s;
   }
   .btn-ghost:hover { border-color: var(--green); background: rgba(150,201,107,0.15); }
-
   .hero-scroll {
     position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -175,7 +175,6 @@
     61% { transform:scaleY(1); transform-origin:bottom; }
     100%{ transform:scaleY(0); transform-origin:bottom; }
   }
-
   /* ── STAT BAR ── */
   .stat-bar {
     background: var(--green);
@@ -193,18 +192,15 @@
   .stat-unit { font-size: clamp(14px, 2.5vw, 18px); font-weight: 800; color: var(--black); }
   .stat-row { display: block; line-height: 1; margin-bottom: 4px; }
   .stat-label { font-size: 11px; font-weight: 700; color: rgba(0,0,0,0.55); margin-top: 5px; }
-
   /* ── SECTIONS ── */
   .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
   section { padding: 80px 24px; }
-
   .bg-white { background: var(--white); }
   .bg-light { background: var(--gray-light); }
   .bg-green-light { background: var(--green-light); }
   .bg-accent {
     background: linear-gradient(135deg, #2A5C1E 0%, #3A7A28 100%);
   }
-
   .section-label {
     font-size: 11px; font-weight: 800; letter-spacing: 0.15em;
     color: var(--green-mid); text-transform: uppercase;
@@ -217,7 +213,6 @@
   }
   .section-title .hi { color: var(--green-dark); }
   .section-desc { font-size: 15px; color: var(--gray); line-height: 1.75; }
-
   /* ── REVEAL ── */
   .reveal       { opacity:0; transform:translateY(36px);   transition: opacity .7s ease, transform .7s ease; }
   .reveal-left  { opacity:0; transform:translateX(-36px);  transition: opacity .7s ease, transform .7s ease; }
@@ -225,7 +220,6 @@
   .reveal.visible, .reveal-left.visible, .reveal-right.visible { opacity:1; transform:none; }
   .delay-1 { transition-delay:.1s } .delay-2 { transition-delay:.2s }
   .delay-3 { transition-delay:.3s } .delay-4 { transition-delay:.4s }
-
   /* ── PAIN ── */
   .pain-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
@@ -240,7 +234,6 @@
   .pain-card:hover { border-color: #E05A50; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(224,90,80,.1); }
   .pain-icon { font-size: 26px; flex-shrink: 0; }
   .pain-text  { font-size: 14px; font-weight: 500; line-height: 1.65; }
-
   /* ── TRUTH ── */
   .truth-wrap { display:flex; flex-direction:column; gap:20px; margin-top:36px; }
   .truth-card {
@@ -265,7 +258,6 @@
     padding: 8px 14px; margin-top: 12px;
     font-size: 13px; font-weight: 700; color: var(--green-deep);
   }
-
   /* ── FEE ── */
   .fee-visual {
     margin-top: 36px;
@@ -295,7 +287,6 @@
     background: linear-gradient(90deg, var(--green), var(--green-dark));
     width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1);
   }
-
   /* ── CASHBACK ── */
   .cb-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px; }
   @media(max-width:480px){ .cb-grid{ grid-template-columns:1fr; } }
@@ -314,7 +305,6 @@
     color: var(--green-deep); font-weight: 700; font-size: 11px;
     padding: 4px 12px; border-radius: 20px; margin-top: 12px;
   }
-
   /* ── STRENGTH ── */
   .str-list { display:flex; flex-direction:column; gap:18px; margin-top:36px; }
   .str-item {
@@ -333,7 +323,6 @@
   }
   .str-text strong { display:block; font-size: 16px; margin-bottom: 4px; }
   .str-text span   { font-size: 13px; color: var(--gray); }
-
   /* ── COMPARE ── */
   .compare-wrap { margin-top: 36px; overflow-x: auto; }
   table {
@@ -356,7 +345,6 @@
   tbody tr:hover td { background: var(--green-light) !important; }
   .ok { color: var(--green-dark); font-weight:800; }
   .ng { color: #ccc; }
-
   /* ── PROCESS ── */
   .proc-list { display:flex; flex-direction:column; gap:0; margin-top:36px; position:relative; }
   .proc-list::before {
@@ -376,7 +364,6 @@
   .proc-body { padding-top:12px; }
   .proc-body strong { font-size:16px; display:block; margin-bottom:4px; }
   .proc-body span   { font-size:13px; color:var(--gray); }
-
   /* ── CTA ── */
   .cta-section {
     background:
@@ -411,7 +398,6 @@
   }
   .cta-big-btn:hover { transform:translateY(-4px); box-shadow:0 8px 50px var(--green-glow); }
   .cta-note { font-size:12px; color:rgba(255,255,255,.4); margin-top:16px; position:relative; }
-
   /* ── FLOAT CTA ── */
   .float-cta {
     position:fixed; bottom:24px; right:20px; z-index:200;
@@ -424,18 +410,15 @@
   }
   .float-cta.show { transform:translateY(0); opacity:1; }
   .float-cta:hover { transform:translateY(-3px); }
-
   /* ── FOOTER ── */
   footer {
     background:#0E0E0E; color:rgba(255,255,255,.3);
     text-align:center; padding:28px; font-size:12px;
   }
-
   /* ── KEYFRAMES ── */
   @keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
   @keyframes fadeDown { from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)} }
   @keyframes scrollFadeUp { from{opacity:0;transform:translateX(-50%) translateY(28px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
-
 /* ═══════════════════════════════════════
    モバイル対応 (768px以下)
 ═══════════════════════════════════════ */
@@ -444,7 +427,6 @@
   .nav-inner { padding: 0 16px; }
   .nav-logo { font-size: 14px; }
   .nav-cta { font-size: 12px; padding: 8px 14px; }
-
   /* ヒーロー */
   .hero { padding: 80px 20px 70px; }
   .hero-badge { font-size: 11px; padding: 6px 14px; }
@@ -453,48 +435,39 @@
   .hero-sub { font-size: 14px; padding: 0 4px; }
   .hero-btns { flex-direction: column; align-items: center; gap: 12px; }
   .btn-primary, .btn-outline { width: 80%; max-width: 280px; text-align: center; }
-
   /* 統計バー 2×2グリッド */
   .stat-inner { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 8px; }
   .stat-num { font-size: clamp(22px, 6vw, 30px); }
   .stat-label { font-size: 10px; }
-
   /* セクション共通 */
   .container { padding: 0 16px; }
   .section-title { font-size: clamp(20px, 6vw, 28px); }
   .section-desc { font-size: 14px; }
-
   /* 業界の真実カード */
   .truth-grid { grid-template-columns: 1fr; gap: 16px; }
   .truth-card { padding: 20px 16px; }
-
   /* 手数料 */
   .fee-visual { padding: 20px 16px; }
   .fee-header { font-size: 14px; }
   .fee-row { flex-direction: column; gap: 4px; }
   .fee-row-label { font-size: 13px; }
   .fee-row-val { font-size: 14px; text-align: right; }
-
   /* キャッシュバック */
   .cb-grid { grid-template-columns: 1fr; gap: 12px; }
-
   /* 強み */
   .str-list { gap: 16px; }
   .str-item { flex-direction: column; gap: 8px; }
   .str-icon { font-size: 24px; }
-
   /* 比較表 */
   .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .compare-wrap table { min-width: 340px; font-size: 12px; }
   .compare-wrap td, .compare-wrap th { padding: 8px 6px; }
-
   /* 流れ */
   .proc-list { gap: 0; }
   .proc-list::before { left: 23px; }
   .proc-step { gap: 16px; }
   .proc-dot { width: 46px; height: 46px; font-size: 16px; flex-shrink: 0; }
   .proc-body { padding-top: 8px; padding-left: 0; }
-
   /* CTA */
   .cta-section { padding: 60px 20px; }
   .cta-section h2 { font-size: clamp(22px, 6vw, 32px); }
@@ -505,7 +478,6 @@
   /* 日本語の途中改行を防ぐ */
   p, .hero-sub, .section-desc { word-break: keep-all; overflow-wrap: anywhere; }
 }
-
 @media (max-width: 480px) {
   .stats-bar { grid-template-columns: repeat(2, 1fr); }
   .hero-title { font-size: clamp(24px, 8vw, 36px); }
@@ -516,48 +488,39 @@
 </style>
 </head>
 <body>
-
 <!-- NAVBAR -->
 <nav class="nav" id="nav">
   <div class="nav-logo">🏠 ぶっちゃけ不動産</div>
   <a href="#form" class="nav-cta">無料相談する</a>
 </nav>
-
 <!-- FLOAT CTA -->
 <a href="#form" class="float-cta" id="floatCta">📋 無料ヒアリング</a>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-grid"></div>
-
   <div class="hero-badge">
     <span class="dot"></span>
     不動産業界のぶっちゃけ話
   </div>
-
   <h1>
     どこの不動産屋に行っても、<br>
     <span class="accent">物件は同じです。</span>
   </h1>
-
   <p class="hero-sub">
     同じ物件を探すなら、手数料が安くて対応が早く、<br>
         キャッシュバックもある業者を選ぶべき理由を、正直に話します。
   </p>
-
   <div class="hero-btns">
     <a href="#truth" class="btn-primary">ぶっちゃけ話を読む →</a>
     <a href="#form"  class="btn-ghost">無料で相談する</a>
   </div>
-
   <div class="hero-scroll">
     <span>SCROLL</span>
     <div class="scroll-line"></div>
   </div>
 </section>
-
 <!-- STAT BAR -->
 <div class="stat-bar">
   <div class="stat-inner">
@@ -579,7 +542,6 @@
     </div>
   </div>
 </div>
-
 <!-- PAIN -->
 <section class="bg-light">
   <div class="container">
@@ -606,7 +568,6 @@
     </div>
   </div>
 </section>
-
 <!-- TRUTH -->
 <section class="bg-white" id="truth">
   <div class="container">
@@ -641,7 +602,6 @@
     </div>
   </div>
 </section>
-
 <!-- FEE -->
 <section class="bg-light">
   <div class="container">
@@ -673,7 +633,6 @@
     </div>
   </div>
 </section>
-
 <!-- CASHBACK -->
 <section class="bg-green-light">
   <div class="container">
@@ -702,7 +661,6 @@
     </div>
   </div>
 </section>
-
 <!-- STRENGTH -->
 <section class="bg-white">
   <div class="container">
@@ -741,7 +699,6 @@
     </div>
   </div>
 </section>
-
 <!-- COMPARE -->
 <section class="bg-light">
   <div class="container">
@@ -767,7 +724,6 @@
     </div>
   </div>
 </section>
-
 <!-- PROCESS -->
 <section class="bg-white">
   <div class="container">
@@ -805,7 +761,6 @@
     </div>
   </div>
 </section>
-
 <!-- CTA -->
 <div class="cta-section" id="form">
   <div class="container">
@@ -815,11 +770,9 @@
     <p class="cta-note reveal">送信後、担当者からLINEにて折り返しご連絡します</p>
   </div>
 </div>
-
 <footer>
   <p>© 2026 ぶっちゃけ不動産 | 1都3県を中心に全国対応</p>
 </footer>
-
 <script>
 /* ── ナビバー & フロートCTA ── */
 const nav = document.getElementById('nav');
@@ -829,7 +782,6 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', y > 60);
   floatCta.classList.toggle('show', y > window.innerHeight * 0.55);
 }, { passive: true });
-
 /* ── スクロールフェードイン ── */
 const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 const revObserver = new IntersectionObserver((entries) => {
@@ -838,7 +790,6 @@ const revObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.14 });
 revealEls.forEach(el => revObserver.observe(el));
-
 /* ── カウントアップ ── */
 function countUp(el, target, duration = 1100) {
   const start = performance.now();
@@ -856,7 +807,6 @@ const cntObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 statNums.forEach(el => cntObserver.observe(el));
-
 /* ── 手数料バc�� ── */
 const feeBar = document.getElementById('feeBar');
 const feeObserver =
@@ -866,7 +816,6 @@ const feeObserver =
   });
 }, { threshold: 0.5 });
 if (feeBar) feeObserver.observe(feeBar);
-
 /* ── スムーズスクロール ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
