@@ -106,7 +106,23 @@ export default async function handler(req, res) {
       phone: fmtVal(d.phone) || null,
       source: 'LINEヒアリングフォーム',
       status: 'new',
-      notes: notes || null,
+      notes: JSON.stringify({
+        furigana: fmtVal(d.furigana),
+        line_name: fmtVal(d.line_name),
+        occupation: fmtVal(d.occupation),
+        move_timing: fmtVal(d.move_timing),
+        vacancy_date: fmtVal(d.vacancy_date),
+        reason: fmtVal(d.reason),
+        area: fmtVal(d.area),
+        walk_min: fmtVal(d.walk_min),
+        layout: fmtVal(d.layout),
+        rent_max: fmtVal(d.rent_max),
+        must: fmtVal(d.must),
+        nice: fmtVal(d.nice),
+        property_urls: fmtVal(d.property_urls),
+        free_text: fmtVal(d.free_text),
+        slack_summary: notes,
+      }),
     };
 
     try {
