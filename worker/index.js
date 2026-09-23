@@ -54,6 +54,14 @@ async function runVercelHandler(handler, request, url) {
     end(data) { payload = data ?? null; done(); return res; },
   };
 
-  await Promise.race([Promise.resolve(handler(req, res)).then(() => done()), finished]);
+  try {
+    await Promise.race([Promise.resolve(handler(req, res)).then(() => done()), finished]);
+  } catch (err) {
+    console.error(`${req.method} ${url.pathname} failed:`, err);
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
   return new Response(payload, { status, headers });
 }
