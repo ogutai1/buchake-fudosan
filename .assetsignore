@@ -11,3 +11,5 @@ vercel.json
 api
 worker
 schema.sql
+.env*
+.dev.vars*
