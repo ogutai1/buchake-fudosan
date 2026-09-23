@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "buchake-fudosan",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-09-21",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": { "enabled": true }
+  // 秘密情報は npx wrangler secret put <KEY> で登録（process.env から参照される）
+}
