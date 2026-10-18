@@ -3,12 +3,13 @@
   "name": "buchake-fudosan",
   "main": "worker/index.js",
   "compatibility_date": "2026-09-21",
-  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./",
+    "binding": "ASSETS",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/api/*"]
+    // www なし → www 付きの転送を Worker でやるため、静的ページより先に Worker を通す
+    "run_worker_first": true
   },
   "observability": { "enabled": true }
-  // 秘密情報は npx wrangler secret put <KEY> で登録（process.env から参照される）
+  // 独自ドメイン（www.bucchake-fudosan.com / bucchake-fudosan.com）は Cloudflare のゾーンで Worker に割り当てる
 }
