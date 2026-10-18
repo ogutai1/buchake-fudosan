@@ -6,7 +6,10 @@
 <meta name="robots" content="noindex">
 <title>物件探しのご依頼｜ぶっちゃけ不動産</title>
 <!-- 2026-10 物件提案の自動化：ヒアリングフォームは新フォーム（bukken-teian）へ。旧フォームは form-old.html -->
-<script>location.replace("https://bukken-teian.oguchi.workers.dev/" + location.search);</script>
+<script>
+// LINE アプリの中で開いたら LINE 版（LIFF）のフォームへ：送信と同時に LINE 連携まで終わる
+location.replace((/ Line\//i.test(navigator.userAgent) ? "https://liff.line.me/2012068959-4uOssMuR/apply" : "https://bukken-teian.oguchi.workers.dev/") + location.search);
+</script>
 <meta http-equiv="refresh" content="0;url=https://bukken-teian.oguchi.workers.dev/">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <style>body{font-family:sans-serif;text-align:center;padding:60px 16px;color:#17252B}a{color:#009B58;font-weight:700}</style>
