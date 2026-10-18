@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ぶっちゃけ不動産｜正直に話します、引越し探しの真実</title>
+<title>ぶっちゃけ不動産｜どこの不動産屋に行っても、物件は同じです。</title>
+<meta name="description" content="賃貸のお部屋探しは、手数料・スピード・正直さで選ぶ時代。ぶっちゃけ不動産は紹介料と合わせて仲介手数料を家賃1ヶ月分以内に。LINEで30分以内に返信、デメリットも正直にお伝えします。">
+<meta property="og:title" content="ぶっちゃけ不動産｜どこの不動産屋に行っても、物件は同じです。">
+<meta property="og:description" content="手数料・スピード・正直さで選ぶお部屋探し。LINEで気軽に無料相談。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.bucchake-fudosan.com/">
+<meta property="og:image" content="https://www.bucchake-fudosan.com/img/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/icon-180.png">
+<meta name="theme-color" content="#2FA35A">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5G4VSNQD"></script>
 <script>
@@ -12,817 +22,727 @@
   gtag('js', new Date());
   gtag('config', 'G-SF5G4VSNQD');
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green:       #96C96B;
-    --green-dark:  #6BA846;
-    --green-mid:   #4A8A30;
-    --green-light: #DCF2C0;
-    --green-deep:  #3D6B28;
-    --green-glow:  rgba(150, 201, 107, 0.4);
-    --black:       #141414;
-    --gray:        #5A5A5A;
-    --gray-light:  #F5F7F2;
+    --green:       #2FA35A;
+    --green-dark:  #22834A;
+    --green-soft:  #E8F4EA;
+    --green-pale:  #F3F8F1;
+    --line:        #06C755;
+    --ink:         #1F2A24;
+    --gray:        #5B6660;
+    --border:      #E2E8E3;
     --white:       #FFFFFF;
+    --warn:        #E2574C;
+    --warn-soft:   #FDEEEC;
+    --radius:      18px;
+    --shadow:      0 6px 24px rgba(31, 42, 36, .06);
+    --maru: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', 'Noto Sans JP', sans-serif;
   }
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
   body {
-    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-    color: var(--black);
-    background: var(--white);
-    line-height: 1.7;
-    overflow-x: hidden;
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    color: var(--ink); background: var(--white);
+    line-height: 1.8; overflow-x: hidden; -webkit-font-smoothing: antialiased;
   }
-  /* ── NAVBAR ── */
-  .nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 14px 28px;
-    display: flex; align-items: center; justify-content: space-between;
-    transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .em { color: var(--green); }
+
+  /* ── ロゴ ── */
+  .logo { display: inline-flex; align-items: center; gap: 8px; font-family: var(--maru); font-weight: 900; font-size: 22px; letter-spacing: .02em; line-height: 1; white-space: nowrap; }
+  .logo svg { width: 36px; height: 36px; flex: none; }
+  .logo b { color: var(--green); font-weight: 900; }
+
+  /* ── ボタン ── */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 28px; border-radius: 14px; font-weight: 700; font-size: 16px; transition: transform .15s, box-shadow .15s, background .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-line { background: var(--line); color: #fff; box-shadow: 0 6px 18px rgba(6, 199, 85, .28); }
+  .btn-line:hover { box-shadow: 0 10px 24px rgba(6, 199, 85, .34); }
+  .btn-ghost { background: #fff; color: var(--green-dark); border: 2px solid var(--green); }
+  .btn-ghost:hover { background: var(--green-pale); }
+  .btn .arw { font-size: 13px; opacity: .9; }
+  .line-ico { width: 26px; height: 26px; flex: none; }
+
+  /* ── ヘッダー ── */
+  .nav { position: fixed; inset: 0 0 auto 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+  .nav.scrolled { border-color: var(--border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: var(--green); }
+  .nav .btn { min-height: 44px; padding: 0 18px; font-size: 14px; border-radius: 10px; }
+  .nav .line-ico { width: 22px; height: 22px; }
+
+  /* ── ファーストビュー ── */
+  .hero { padding: 108px 0 56px; background: linear-gradient(180deg, var(--green-pale) 0%, #fff 100%); position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 24px; }
+  .hero-tag { display: inline-block; font-size: 13px; font-weight: 700; color: var(--green-dark); background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 4px 14px; margin-bottom: 18px; }
+  .hero h1 { font-family: var(--maru); font-weight: 900; font-size: clamp(32px, 4.6vw, 54px); line-height: 1.35; letter-spacing: .01em; }
+  .hero h1 .mark { background: linear-gradient(transparent 62%, #CDEBC9 62%); }
+  .hero-sub { margin-top: 18px; font-size: clamp(16px, 1.6vw, 19px); font-weight: 700; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .checks { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; font-size: 13px; color: var(--gray); }
+  .checks li { list-style: none; display: flex; align-items: center; gap: 6px; }
+  .checks li::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat; flex: none; }
+  .hero-art { position: relative; }
+  .hero-art img { width: 100%; max-width: 520px; margin: 0 auto; }
+  .bubble { position: absolute; background: #fff; border: 2px solid var(--ink); border-radius: 20px; padding: 8px 14px; font-family: var(--maru); font-weight: 700; font-size: 14px; line-height: 1.5; box-shadow: var(--shadow); white-space: nowrap; }
+  .bubble::after { content: ''; position: absolute; width: 12px; height: 12px; background: #fff; border: 2px solid var(--ink); border-top: 0; border-left: 0; transform: rotate(45deg); }
+  .bubble.b1 { left: 2%; top: 4%; }
+  .bubble.b1::after { bottom: -8px; left: 38px; }
+  .bubble.b2 { right: 0; top: 0; background: var(--green-soft); border-color: var(--green); color: var(--green-dark); }
+  .bubble.b2::after { bottom: -8px; right: 44px; background: var(--green-soft); border-color: var(--green); }
+
+  /* ── 数字の帯 ── */
+  .stats { margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .stat { display: flex; align-items: center; gap: 14px; padding: 22px 24px; }
+  .stat + .stat { border-left: 1px solid var(--border); }
+  .stat svg { width: 40px; height: 40px; flex: none; color: var(--green); }
+  .stat small { display: block; font-size: 12px; color: var(--gray); font-weight: 700; line-height: 1.4; }
+  .stat strong { font-family: var(--maru); font-weight: 900; font-size: 30px; color: var(--green); line-height: 1.2; }
+  .stat strong span { font-size: 15px; }
+
+  /* ── セクション共通 ── */
+  section.sec { padding: 88px 0; }
+  .sec.alt { background: var(--green-pale); }
+  .sec-head { text-align: center; margin-bottom: 44px; }
+  .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--green); margin-bottom: 8px; }
+  .sec-head h2 { font-family: var(--maru); font-weight: 900; font-size: clamp(24px, 3.2vw, 36px); line-height: 1.45; }
+  .sec-head p { margin-top: 12px; color: var(--gray); font-size: 15px; }
+  .card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+
+  /* ── お悩み ── */
+  .worries { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .worry { padding: 20px 18px 22px; text-align: center; }
+  .worry img { width: 120px; height: 120px; object-fit: contain; margin: 0 auto 10px; }
+  .worry p { font-size: 14px; font-weight: 700; line-height: 1.7; }
+  .worry-answer { margin-top: 36px; text-align: center; font-family: var(--maru); font-weight: 900; font-size: clamp(18px, 2.2vw, 24px); }
+  .worry-answer::before { content: ''; display: block; width: 0; height: 0; margin: 0 auto 16px; border: 18px solid transparent; border-top-color: var(--green); border-bottom: 0; }
+
+  /* ── 要注意 ── */
+  .warns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .warn { padding: 22px; border-color: #F4D4D0; }
+  .warn .tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--warn); background: var(--warn-soft); border-radius: 999px; padding: 3px 12px; margin-bottom: 10px; }
+  .warn h3 { font-size: 16px; line-height: 1.6; }
+  .warn p { margin-top: 6px; font-size: 13px; color: var(--gray); line-height: 1.7; }
+  .promise { margin-top: 28px; padding: 26px 28px; display: flex; align-items: center; gap: 20px; background: var(--green); color: #fff; border-radius: var(--radius); }
+  .promise svg { width: 52px; height: 52px; flex: none; }
+  .promise h3 { font-family: var(--maru); font-weight: 900; font-size: 22px; line-height: 1.5; }
+  .promise p { font-size: 14px; opacity: .92; margin-top: 2px; }
+
+  /* ── 業界の本音 ── */
+  .truths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .truth { padding: 28px 26px 26px; display: flex; flex-direction: column; }
+  .truth-top { display: flex; align-items: center; justify-content: space-between; }
+  .truth-num { font-family: var(--maru); font-weight: 900; font-size: 44px; line-height: 1; color: var(--green); }
+  .truth-top img { width: 96px; height: 96px; object-fit: contain; }
+  .truth h3 { margin-top: 14px; font-size: 18px; line-height: 1.55; }
+  .truth p { margin-top: 10px; font-size: 14px; color: var(--gray); flex: 1; }
+  .truth p strong { color: var(--ink); background: linear-gradient(transparent 60%, #CDEBC9 60%); }
+  .truth .so { margin-top: 16px; font-size: 13px; font-weight: 700; color: var(--green-dark); background: var(--green-soft); border-radius: 10px; padding: 10px 12px; }
+
+  /* ── 手数料 ── */
+  .fee-rule { text-align: center; font-family: var(--maru); font-weight: 900; font-size: clamp(16px, 2.4vw, 24px); margin-bottom: 28px; }
+  .fee-rule .eq { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
+  .fee-rule .pill { background: #fff; border: 2px solid var(--green); color: var(--green-dark); border-radius: 12px; padding: 4px 14px; }
+  .fee-rule .pill.solid { background: var(--green); color: #fff; }
+  .fees { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .fee { overflow: hidden; }
+  .fee-head { padding: 14px; text-align: center; font-weight: 700; background: var(--green); color: #fff; line-height: 1.5; }
+  .fee-head small { display: block; font-size: 12px; opacity: .9; font-weight: 500; }
+  .fee.half .fee-head { background: var(--green-soft); color: var(--green-dark); }
+  .fee.other .fee-head { background: #EEF0EE; color: var(--gray); }
+  .fee-body { padding: 8px 20px 18px; }
+  .fee-row { display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .fee-row b { font-family: var(--maru); font-size: 17px; color: var(--green-dark); white-space: nowrap; }
+  .fee.other .fee-row b { color: var(--gray); font-size: 15px; }
+  .fee-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; font-weight: 700; }
+  .fee-total b { font-family: var(--maru); font-weight: 900; font-size: 24px; }
+  .fee-you { margin-top: 12px; text-align: center; font-size: 13px; font-weight: 700; border-radius: 10px; padding: 8px; background: var(--green-pale); color: var(--green-dark); }
+  .fee.other .fee-you { background: #F4F5F4; color: var(--gray); }
+  .why { margin-top: 28px; padding: 26px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
+  .why-q { font-family: var(--maru); font-weight: 900; font-size: 20px; color: var(--green-dark); line-height: 1.5; }
+  .why p { font-size: 14px; color: var(--gray); }
+  .why p strong { color: var(--ink); }
+  .sim { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 14px; font-weight: 700; background: var(--green-pale); border-radius: 12px; padding: 12px 16px; }
+  .sim select { font: inherit; padding: 6px 10px; border: 2px solid var(--green); border-radius: 10px; background: #fff; color: var(--ink); }
+  .sim output { font-family: var(--maru); font-weight: 900; font-size: 26px; color: var(--green); }
+  .note { margin-top: 8px; font-size: 12px; color: var(--gray); }
+
+  /* ── ライフライン ── */
+  .life { display: grid; grid-template-columns: 1fr 240px; gap: 32px; align-items: center; padding: 36px; }
+  .life h2 { font-family: var(--maru); font-weight: 900; font-size: clamp(22px, 3vw, 30px); line-height: 1.45; }
+  .life > div > p { margin-top: 10px; color: var(--gray); font-size: 15px; }
+  .life-items { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+  .life-item { display: flex; align-items: center; gap: 12px; border: 1px solid var(--border); border-radius: 14px; padding: 12px 18px 12px 12px; background: #fff; }
+  .life-item i { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--green-soft); font-style: normal; font-size: 22px; }
+  .life-item b { display: block; font-size: 15px; }
+  .life-item small { font-size: 12px; color: var(--green-dark); font-weight: 700; }
+  .life img { width: 100%; max-width: 240px; margin: 0 auto; }
+
+  /* ── 浮いたお金で ── */
+  .uses { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .use { text-align: center; padding: 26px 16px 22px; }
+  .use i { display: grid; place-items: center; width: 72px; height: 72px; margin: 0 auto 12px; border-radius: 50%; background: var(--green-soft); font-style: normal; font-size: 34px; }
+  .use b { display: block; font-family: var(--maru); font-size: 17px; }
+  .use small { display: block; margin-top: 4px; font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* ── 選ばれる理由 ── */
+  .reasons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .reason { padding: 26px 22px; }
+  .reason svg { width: 44px; height: 44px; color: var(--green); }
+  .reason h3 { margin-top: 12px; font-size: 17px; line-height: 1.5; }
+  .reason p { margin-top: 6px; font-size: 13px; color: var(--gray); line-height: 1.75; }
+
+  /* ── 比較表 ── */
+  .compare { overflow-x: auto; padding: 20px; }
+  .compare table { width: 100%; min-width: 520px; border-collapse: separate; border-spacing: 0; font-size: 14px; }
+  .compare th, .compare td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--border); }
+  .compare thead th { background: #F4F5F4; color: var(--gray); }
+  .compare thead th.us { background: var(--green); color: #fff; border-radius: 12px 12px 0 0; }
+  .compare thead th:first-child { background: transparent; }
+  .compare tbody th { text-align: left; font-weight: 700; white-space: nowrap; }
+  .compare td.us { background: var(--green-pale); color: var(--green-dark); font-weight: 700; border-left: 2px solid var(--green); border-right: 2px solid var(--green); }
+  .compare tr:last-child td.us { border-bottom: 2px solid var(--green); border-radius: 0 0 12px 12px; }
+  .compare td.them { color: var(--gray); }
+
+  /* ── LINEで聞けること ── */
+  .gift { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+  .gift-l { padding: 36px; background: var(--line); color: #fff; }
+  .gift-l .eyebrow { color: #fff; opacity: .9; }
+  .gift-l h2 { font-family: var(--maru); font-weight: 900; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.45; }
+  .gift-l p { margin-top: 10px; font-size: 14px; opacity: .95; }
+  .gift-l .btn { margin-top: 22px; background: #fff; color: #05A847; }
+  .gift-r { padding: 30px 36px; }
+  .gift-r li { list-style: none; display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px dashed var(--border); font-weight: 700; font-size: 15px; }
+  .gift-r li:last-child { border-bottom: 0; }
+  .gift-r li span { flex: none; width: 26px; height: 26px; border-radius: 8px; background: var(--green-soft); color: var(--green-dark); display: grid; place-items: center; font-size: 13px; font-family: var(--maru); }
+
+  /* ── 流れ ── */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .step { padding: 24px 20px; position: relative; text-align: center; }
+  .step-num { font-family: var(--maru); font-weight: 900; font-size: 13px; color: var(--green); letter-spacing: .1em; }
+  .step-ico { width: 64px; height: 64px; margin: 0 auto 10px; border-radius: 50%; background: var(--green-soft); display: grid; place-items: center; color: var(--green-dark); }
+  .step-ico svg { width: 30px; height: 30px; }
+  .step h3 { font-size: 16px; }
+  .step p { margin-top: 6px; font-size: 13px; color: var(--gray); line-height: 1.7; }
+  .step:not(:last-child)::after { content: ''; position: absolute; right: -13px; top: 50%; width: 10px; height: 10px; border-top: 2px solid var(--green); border-right: 2px solid var(--green); transform: translateY(-50%) rotate(45deg); }
+
+  /* ── FAQ ── */
+  .faq { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
+  .faq details { background: #fff; border: 1px solid var(--border); border-radius: 14px; }
+  .faq summary { cursor: pointer; list-style: none; display: flex; gap: 12px; align-items: center; padding: 18px 20px; font-weight: 700; font-size: 15px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: 'Q'; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--green); color: #fff; font-family: var(--maru); }
+  .faq summary::after { content: '+'; margin-left: auto; font-size: 22px; color: var(--green); transition: transform .2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq .a { padding: 0 20px 18px 62px; font-size: 14px; color: var(--gray); }
+
+  /* ── 最後のCTA ── */
+  .final { padding: 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; background: linear-gradient(135deg, #fff 0%, var(--green-pale) 100%); }
+  .final h2 { font-family: var(--maru); font-weight: 900; font-size: clamp(22px, 3vw, 32px); line-height: 1.45; }
+  .final p { margin-top: 8px; color: var(--gray); font-size: 15px; }
+  .final .hero-btns { margin-top: 22px; }
+  .final img { width: 190px; }
+
+  /* ── フッター ── */
+  footer { padding: 40px 0 120px; border-top: 1px solid var(--border); margin-top: 88px; }
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: var(--gray); }
+  .copy { font-size: 12px; color: var(--gray); margin-top: 16px; }
+
+  /* ── 追従するLINEボタン ── */
+  .float { position: fixed; z-index: 90; right: 20px; bottom: 20px; display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 18px; background: var(--line); color: #fff; border-radius: 18px; box-shadow: 0 12px 32px rgba(6, 199, 85, .35); opacity: 0; transform: translateY(20px); pointer-events: none; transition: opacity .25s, transform .25s; }
+  .float.show { opacity: 1; transform: none; pointer-events: auto; }
+  .float b { display: block; font-size: 15px; line-height: 1.4; }
+  .float small { display: block; font-size: 12px; opacity: .92; }
+  .float .go { background: #fff; color: #05A847; font-weight: 700; font-size: 13px; padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+
+  /* ── 表示アニメーション ── */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  /* ── タブレット ── */
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-art { max-width: 460px; margin: 0 auto; width: 100%; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3) { border-left: 0; }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--border); }
+    .worries, .uses, .reasons { grid-template-columns: repeat(2, 1fr); }
+    .warns, .truths, .fees { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: repeat(2, 1fr); }
+    .step:nth-child(2)::after { display: none; }
+    .gift { grid-template-columns: 1fr; }
+    .life { grid-template-columns: 1fr; }
+    .life img { max-width: 220px; }
   }
-  .nav.scrolled {
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  /* ── スマホ ── */
+  @media (max-width: 600px) {
+    .wrap { padding: 0 16px; }
+    .logo { font-size: 19px; }
+    .logo svg { width: 30px; height: 30px; }
+    .nav .btn .t { display: none; }
+    .nav .btn { padding: 0 12px; }
+    .hero { padding: 92px 0 40px; }
+    .hero-btns .btn { width: 100%; }
+    .bubble { font-size: 12px; padding: 6px 10px; }
+    .stat { padding: 16px 14px; gap: 10px; }
+    .stat svg { width: 30px; height: 30px; }
+    .stat strong { font-size: 24px; }
+    section.sec { padding: 64px 0; }
+    .sec-head { margin-bottom: 32px; }
+    .worry { padding: 16px 10px; }
+    .worry img { width: 96px; height: 96px; }
+    .worry p { font-size: 13px; }
+    .worry p br { display: none; }
+    .promise { flex-direction: column; text-align: center; padding: 24px 20px; }
+    .promise h3 { font-size: 19px; }
+    .truth-top img { width: 80px; height: 80px; }
+    .why { grid-template-columns: 1fr; padding: 22px 20px; gap: 8px; }
+    .why-q br { display: none; }
+    .life { padding: 26px 20px; }
+    .life-item { flex: 1 1 100%; }
+    .use { padding: 20px 12px; }
+    .use i { width: 60px; height: 60px; font-size: 28px; }
+    .reasons { grid-template-columns: 1fr; }
+    .reason { display: grid; grid-template-columns: 44px 1fr; gap: 0 14px; padding: 20px; }
+    .reason svg { grid-row: span 2; }
+    .reason h3 { margin-top: 0; }
+    .steps { grid-template-columns: 1fr; }
+    .step { display: grid; grid-template-columns: 64px 1fr; text-align: left; gap: 0 16px; align-items: center; padding: 18px; }
+    .step-ico { grid-row: span 3; margin: 0; }
+    .step::after { display: none; }
+    .gift-l, .gift-r { padding: 26px 20px; }
+    .final { grid-template-columns: 1fr; padding: 28px 20px; }
+    .final img { width: 150px; margin: 0 auto; grid-row: 1; }
+    .faq .a { padding-left: 20px; }
+    .compare { padding: 12px 8px; }
+    .compare table { min-width: 0; font-size: 12px; }
+    .compare th, .compare td { padding: 10px 6px; }
+    .compare tbody th { white-space: normal; }
+    .float { left: 12px; right: 12px; bottom: 12px; justify-content: center; padding: 12px; border-radius: 16px; }
+    .float small, .float .go { display: none; }
+    .float b { font-size: 16px; }
   }
-  .nav-logo {
-    font-weight: 900; font-size: 18px; color: var(--white);
-    transition: color 0.4s;
-  }
-  .nav.scrolled .nav-logo { color: var(--green-mid); }
-  .nav-cta {
-    background: var(--green); color: var(--black);
-    font-weight: 800; font-size: 13px;
-    padding: 9px 22px; border-radius: 30px; text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 12px var(--green-glow);
-  }
-  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 4px 20px var(--green-glow); }
-  /* ── HERO（背景画像） ── */
-  .hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center;
-    padding: 120px 24px 100px;
-    overflow: hidden;
-    background:
-      linear-gradient(160deg, rgba(10,30,6,.52) 0%, rgba(20,50,10,.48) 100%),
-      url('https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    background-color: #0a1e06;
-  }
-  .hero-bg {
-    position: absolute; inset: 0; z-index: 0;
-    background:
-      url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1920&q=80')
-      center/cover no-repeat;
-  }
-  /* グラデオーバーレイ：文字が確実に読める暗さ */
-  .hero-overlay {
-    position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(
-      160deg,
-      rgba(10, 30, 6, 0.40) 0%,
-      rgba(20, 50, 10, 0.36) 50%,
-      rgba(10, 28, 5, 0.420) 100%
-    );
-  }
-  /* グリッド */
-  .hero-grid {
-    position: absolute; inset: 0; z-index: 2;
-    background-image:
-      linear-gradient(rgba(150,201,107,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(150,201,107,0.06) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-  .hero > * { position: relative; z-index: 3; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(150,201,107,0.15);
-    border: 1px solid rgba(150,201,107,0.4);
-    color: var(--green); font-size: 12px; font-weight: 700;
-    padding: 7px 18px; border-radius: 30px; margin-bottom: 28px;
-    letter-spacing: 0.08em;
-    animation: fadeDown 0.8s ease 0.2s both;
-  }
-  .hero-badge .dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
-  .hero h1 {
-    font-size: clamp(28px, 7.5vw, 56px);
-    font-weight: 900; line-height: 1.25;
-    color: var(--white); margin-bottom: 22px;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
-    animation: fadeUp 0.9s ease 0.4s both;
-  }
-  .hero h1 .accent {
-    color: var(--green);
-    position: relative; display: inline-block;
-  }
-  .hero h1 .accent::after {
-    content: '';
-    position: absolute; bottom: -4px; left: 0; right: 0; height: 3px;
-    background: var(--green); border-radius: 2px;
-    transform: scaleX(0); transform-origin: left;
-    animation: lineIn 0.6s ease 1.4s forwards;
-  }
-  @keyframes lineIn { to { transform: scaleX(1); } }
-  .hero-sub {
-    font-size: clamp(14px, 2.5vw, 17px);
-    color: rgba(255,255,255,0.82);
-    max-width: 540px; margin: 0 auto 40px;
-    text-shadow: 0 1px 10px rgba(0,0,0,0.5);
-    animation: fadeUp 0.9s ease 0.6s both;
-  }
-  .hero-btns {
-    display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
-    animation: fadeUp 0.9s ease 0.8s both;
-  }
-  .btn-primary {
-    background: var(--green); color: var(--black);
-    font-weight: 900; font-size: 16px;
-    padding: 16px 36px; border-radius: 50px; text-decoration: none;
-    box-shadow: 0 0 30px var(--green-glow);
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center; display: inline-flex; align-items: center; justify-content: center;
-  }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 40px var(--green-glow); }
-  .btn-ghost {
-    border: 1.5px solid rgba(255,255,255,0.5); color: var(--white);
-    font-weight: 700; font-size: 15px;
-    padding: 15px 30px; border-radius: 50px; text-decoration: none;
-    backdrop-filter: blur(4px);
-    background: rgba(255,255,255,0.08);
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--green); background: rgba(150,201,107,0.15); }
-  .hero-scroll {
-    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: rgba(255,255,255,0.45); font-size: 10px; letter-spacing: 0.12em;
-    animation: scrollFadeUp 1s ease 1.6s both; z-index: 3;
-  }
-  .scroll-line {
-    width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--green), transparent);
-    animation: scrollDown 1.8s ease infinite;
-  }
-  @keyframes scrollDown {
-    0%  { transform:scaleY(0); transform-origin:top; opacity:0; }
-    30% { opacity:1; }
-    60% { transform:scaleY(1); transform-origin:top; }
-    61% { transform:scaleY(1); transform-origin:bottom; }
-    100%{ transform:scaleY(0); transform-origin:bottom; }
-  }
-  /* ── STAT BAR ── */
-  .stat-bar {
-    background: var(--green);
-    padding: 22px 24px;
-  }
-  .stat-inner {
-    max-width: 860px; margin: 0 auto;
-    display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px;
-  }
-  .stat-item { text-align: center; }
-  .stat-num {
-    font-size: clamp(26px, 5vw, 38px); font-weight: 900; color: var(--black);
-    display: inline; line-height: 1;
-  }
-  .stat-unit { font-size: clamp(14px, 2.5vw, 18px); font-weight: 800; color: var(--black); }
-  .stat-row { display: block; line-height: 1; margin-bottom: 4px; }
-  .stat-label { font-size: 11px; font-weight: 700; color: rgba(0,0,0,0.55); margin-top: 5px; }
-  /* ── SECTIONS ── */
-  .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-  section { padding: 80px 24px; }
-  .bg-white { background: var(--white); }
-  .bg-light { background: var(--gray-light); }
-  .bg-green-light { background: var(--green-light); }
-  .bg-accent {
-    background: linear-gradient(135deg, #2A5C1E 0%, #3A7A28 100%);
-  }
-  .section-label {
-    font-size: 11px; font-weight: 800; letter-spacing: 0.15em;
-    color: var(--green-mid); text-transform: uppercase;
-    display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
-  }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--green-light); }
-  .section-title {
-    font-size: clamp(24px, 5vw, 34px); font-weight: 900; line-height: 1.3;
-    margin-bottom: 14px;
-  }
-  .section-title .hi { color: var(--green-dark); }
-  .section-desc { font-size: 15px; color: var(--gray); line-height: 1.75; }
-  /* ── REVEAL ── */
-  .reveal       { opacity:0; transform:translateY(36px);   transition: opacity .7s ease, transform .7s ease; }
-  .reveal-left  { opacity:0; transform:translateX(-36px);  transition: opacity .7s ease, transform .7s ease; }
-  .reveal-right { opacity:0; transform:translateX(36px);   transition: opacity .7s ease, transform .7s ease; }
-  .reveal.visible, .reveal-left.visible, .reveal-right.visible { opacity:1; transform:none; }
-  .delay-1 { transition-delay:.1s } .delay-2 { transition-delay:.2s }
-  .delay-3 { transition-delay:.3s } .delay-4 { transition-delay:.4s }
-  /* ── PAIN ── */
-  .pain-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
-  }
-  @media(max-width:520px){ .pain-grid{ grid-template-columns:1fr; } }
-  .pain-card {
-    background: var(--white); border-radius: 16px;
-    padding: 22px; border: 2px solid #eaeaea;
-    display: flex; gap: 14px; align-items: flex-start;
-    transition: border-color .3s, transform .3s, box-shadow .3s;
-  }
-  .pain-card:hover { border-color: #E05A50; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(224,90,80,.1); }
-  .pain-icon { font-size: 26px; flex-shrink: 0; }
-  .pain-text  { font-size: 14px; font-weight: 500; line-height: 1.65; }
-  /* ── TRUTH ── */
-  .truth-wrap { display:flex; flex-direction:column; gap:20px; margin-top:36px; }
-  .truth-card {
-    background: var(--white); border-radius: 18px;
-    padding: 28px 26px; box-shadow: 0 4px 28px rgba(0,0,0,.07);
-    display: flex; gap: 20px; align-items: flex-start;
-    border-left: 4px solid var(--green);
-    transition: transform .3s, box-shadow .3s;
-  }
-  .truth-card:hover { transform: translateX(4px); box-shadow: 0 8px 36px rgba(0,0,0,.11); }
-  .truth-num {
-    min-width: 46px; height: 46px;
-    background: linear-gradient(135deg, var(--green), var(--green-dark));
-    border-radius: 13px; display:flex; align-items:center; justify-content:center;
-    font-weight: 900; font-size: 18px; color: white; flex-shrink: 0;
-  }
-  .truth-body h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
-  .truth-body p  { font-size: 14px; color: var(--gray); line-height: 1.75; }
-  .truth-hl {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--green-light); border-radius: 8px;
-    padding: 8px 14px; margin-top: 12px;
-    font-size: 13px; font-weight: 700; color: var(--green-deep);
-  }
-  /* ── FEE ── */
-  .fee-visual {
-    margin-top: 36px;
-    background: linear-gradient(160deg, #1A3C10 0%, #2A5C1E 100%);
-    border-radius: 20px; overflow: hidden;
-    box-shadow: 0 12px 48px rgba(42,92,30,.35);
-  }
-  .fee-header {
-    background: var(--green); padding: 18px 28px;
-    font-weight: 900; font-size: 16px; color: var(--black);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .fee-body { padding: 24px 28px; }
-  .fee-row {
-    display:flex; justify-content:space-between; align-items:center;
-    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.09);
-  }
-  .fee-row:last-of-type { border-bottom: none; }
-  .fee-row-label { color: rgba(255,255,255,.7); font-size: 14px; }
-  .fee-row-val   { font-weight: 900; font-size: 18px; color: var(--green); }
-  .fee-row-val.dim { color: rgba(255,255,255,.3); font-size: 15px; }
-  .fee-bar-wrap { margin-top: 20px; }
-  .fee-bar-label { font-size: 12px; color: rgba(255,255,255,.5); margin-bottom: 7px; display:flex; justify-content:space-between; }
-  .fee-bar-bg   { background: rgba(255,255,255,.1); border-radius: 6px; height: 10px; overflow: hidden; }
-  .fee-bar-fill {
-    height: 10px; border-radius: 6px;
-    background: linear-gradient(90deg, var(--green), var(--green-dark));
-    width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1);
-  }
-  /* ── CASHBACK ── */
-  .cb-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px; }
-  @media(max-width:480px){ .cb-grid{ grid-template-columns:1fr; } }
-  .cb-card {
-    background: var(--white); border-radius: 18px;
-    padding: 28px 18px; text-align: center;
-    border: 2px solid var(--green-light);
-    transition: border-color .3s, transform .3s, box-shadow .3s;
-  }
-  .cb-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: 0 12px 32px var(--green-glow); }
-  .cb-icon { font-size: 38px; margin-bottom: 12px; }
-  .cb-name { font-weight: 800; font-size: 15px; margin-bottom: 6px; }
-  .cb-desc { font-size: 12px; color: var(--gray); }
-  .cb-tag {
-    display: inline-block; background: var(--green-light);
-    color: var(--green-deep); font-weight: 700; font-size: 11px;
-    padding: 4px 12px; border-radius: 20px; margin-top: 12px;
-  }
-  /* ── STRENGTH ── */
-  .str-list { display:flex; flex-direction:column; gap:18px; margin-top:36px; }
-  .str-item {
-    display:flex; align-items:center; gap:20px;
-    background: var(--white); border-radius: 16px;
-    padding: 22px 24px; box-shadow: 0 2px 16px rgba(0,0,0,.06);
-    transition: transform .3s, box-shadow .3s;
-  }
-  .str-item:hover { transform: translateX(6px); box-shadow: 0 6px 28px rgba(0,0,0,.1); }
-  .str-icon {
-    width: 56px; height: 56px; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--green-light), #c6eaa0);
-    border-radius: 16px;
-    display:flex; align-items:center; justify-content:center;
-    font-size: 26px;
-  }
-  .str-text strong { display:block; font-size: 16px; margin-bottom: 4px; }
-  .str-text span   { font-size: 13px; color: var(--gray); }
-  /* ── COMPARE ── */
-  .compare-wrap { margin-top: 36px; overflow-x: auto; }
-  table {
-    width: 100%; border-collapse: collapse;
-    border-radius: 16px; overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0,0,0,.08);
-    min-width: 400px;
-  }
-  thead th { padding:14px 16px; font-weight:800; font-size:14px; text-align:center; }
-  thead th:first-child { background:#efefef; color:#999; }
-  thead th.us  { background: var(--green); color: var(--black); }
-  thead th.oth { background: #888; color: white; }
-  tbody td {
-    padding:13px 16px; font-size:14px;
-    border-bottom:1px solid #f0f0f0; background:white; text-align:center;
-  }
-  tbody td:first-child { text-align:left; font-weight:600; background:#fafafa; }
-  tbody tr:last-child td { border-bottom:none; }
-  tbody tr { transition: background .2s; }
-  tbody tr:hover td { background: var(--green-light) !important; }
-  .ok { color: var(--green-dark); font-weight:800; }
-  .ng { color: #ccc; }
-  /* ── PROCESS ── */
-  .proc-list { display:flex; flex-direction:column; gap:0; margin-top:36px; position:relative; }
-  .proc-list::before {
-    content:''; position:absolute; left:28px; top:28px; bottom:28px; width:2px;
-    background:linear-gradient(to bottom, var(--green), var(--green-light));
-  }
-  .proc-step { display:flex; gap:22px; align-items:flex-start; padding-bottom:28px; }
-  .proc-step:last-child { padding-bottom:0; }
-  .proc-dot {
-    width:58px; height:58px; flex-shrink:0;
-    background:linear-gradient(135deg, var(--green), var(--green-dark));
-    border-radius:50%; display:flex; align-items:center; justify-content:center;
-    font-weight:900; font-size:20px; color:white;
-    box-shadow:0 0 0 6px white, 0 0 0 8px var(--green-light);
-    z-index:1;
-  }
-  .proc-body { padding-top:12px; }
-  .proc-body strong { font-size:16px; display:block; margin-bottom:4px; }
-  .proc-body span   { font-size:13px; color:var(--gray); }
-  /* ── CTA ── */
-  .cta-section {
-    background:
-      linear-gradient(160deg, rgba(30,70,18,.9) 0%, rgba(50,100,30,.85) 100%),
-      url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80')
-      center/cover no-repeat;
-    padding: 90px 24px; text-align:center; position:relative; overflow:hidden;
-  }
-  .cta-section::before {
-    content:''; position:absolute; inset:0;
-    background-image:
-      linear-gradient(rgba(150,201,107,.06) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(150,201,107,.06) 1px,transparent 1px);
-    background-size:50px 50px;
-  }
-  .cta-section h2 {
-    font-size:clamp(26px,6vw,40px); font-weight:900; color:white;
-    margin-bottom:14px; position:relative;
-  }
-  .cta-section h2 span { color:var(--green); }
-  .cta-section p {
-    color:rgba(255,255,255,.75); font-size:15px;
-    max-width:460px; margin:0 auto 36px; position:relative;
-  }
-  .cta-big-btn {
-    display:inline-block; position:relative;
-    background:var(--green); color:var(--black);
-    font-weight:900; font-size:18px;
-    padding:18px 48px; border-radius:50px; text-decoration:none;
-    box-shadow:0 0 40px var(--green-glow);
-    transition:transform .2s, box-shadow .2s;
-  }
-  .cta-big-btn:hover { transform:translateY(-4px); box-shadow:0 8px 50px var(--green-glow); }
-  .cta-note { font-size:12px; color:rgba(255,255,255,.4); margin-top:16px; position:relative; }
-  /* ── FLOAT CTA ── */
-  .float-cta {
-    position:fixed; bottom:24px; right:20px; z-index:200;
-    background:var(--green); color:var(--black);
-    font-weight:900; font-size:14px;
-    padding:13px 22px; border-radius:50px; text-decoration:none;
-    box-shadow:0 4px 24px var(--green-glow);
-    transform:translateY(80px); opacity:0;
-    transition:transform .4s cubic-bezier(.34,1.56,.64,1), opacity .4s;
-  }
-  .float-cta.show { transform:translateY(0); opacity:1; }
-  .float-cta:hover { transform:translateY(-3px); }
-  /* ── FOOTER ── */
-  footer {
-    background:#0E0E0E; color:rgba(255,255,255,.3);
-    text-align:center; padding:28px; font-size:12px;
-  }
-  /* ── KEYFRAMES ── */
-  @keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes fadeDown { from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes scrollFadeUp { from{opacity:0;transform:translateX(-50%) translateY(28px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
-/* ═══════════════════════════════════════
-   モバイル対応 (768px以下)
-═══════════════════════════════════════ */
-@media (max-width: 768px) {
-  /* ナビ */
-  .nav-inner { padding: 0 16px; }
-  .nav-logo { font-size: 14px; }
-  .nav-cta { font-size: 12px; padding: 8px 14px; }
-  /* ヒーロー */
-  .hero { padding: 80px 20px 70px; }
-  .hero-badge { font-size: 11px; padding: 6px 14px; }
-  .hero-title { font-size: clamp(28px, 8vw, 44px); }
-  .hero-title .hi { font-size: clamp(32px, 9vw, 50px); }
-  .hero-sub { font-size: 14px; padding: 0 4px; }
-  .hero-btns { flex-direction: column; align-items: center; gap: 12px; }
-  .btn-primary, .btn-outline { width: 80%; max-width: 280px; text-align: center; }
-  /* 統計バー 2×2グリッド */
-  .stat-inner { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 8px; }
-  .stat-num { font-size: clamp(22px, 6vw, 30px); }
-  .stat-label { font-size: 10px; }
-  /* セクション共通 */
-  .container { padding: 0 16px; }
-  .section-title { font-size: clamp(20px, 6vw, 28px); }
-  .section-desc { font-size: 14px; }
-  /* 業界の真実カード */
-  .truth-grid { grid-template-columns: 1fr; gap: 16px; }
-  .truth-card { padding: 20px 16px; }
-  /* 手数料 */
-  .fee-visual { padding: 20px 16px; }
-  .fee-header { font-size: 14px; }
-  .fee-row { flex-direction: column; gap: 4px; }
-  .fee-row-label { font-size: 13px; }
-  .fee-row-val { font-size: 14px; text-align: right; }
-  /* キャッシュバック */
-  .cb-grid { grid-template-columns: 1fr; gap: 12px; }
-  /* 強み */
-  .str-list { gap: 16px; }
-  .str-item { flex-direction: column; gap: 8px; }
-  .str-icon { font-size: 24px; }
-  /* 比較表 */
-  .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .compare-wrap table { min-width: 340px; font-size: 12px; }
-  .compare-wrap td, .compare-wrap th { padding: 8px 6px; }
-  /* 流れ */
-  .proc-list { gap: 0; }
-  .proc-list::before { left: 23px; }
-  .proc-step { gap: 16px; }
-  .proc-dot { width: 46px; height: 46px; font-size: 16px; flex-shrink: 0; }
-  .proc-body { padding-top: 8px; padding-left: 0; }
-  /* CTA */
-  .cta-section { padding: 60px 20px; }
-  .cta-section h2 { font-size: clamp(22px, 6vw, 32px); }
-  .cta-big-btn { width: 90%; max-width: 320px; font-size: 16px; padding: 16px 20px; }
-  .float-cta { width: calc(100% - 32px); left: 16px; right: 16px; text-align: center; font-size: 14px; padding: 14px 16px; }
-  /* SCROLL中央揃え（高優先度） */
-  .hero .hero-scroll { position: absolute; left: 50%; right: auto; transform: translateX(-50%); bottom: 32px; }
-  /* 日本語の途中改行を防ぐ */
-  p, .hero-sub, .section-desc { word-break: keep-all; overflow-wrap: anywhere; }
-}
-@media (max-width: 480px) {
-  .stats-bar { grid-template-columns: repeat(2, 1fr); }
-  .hero-title { font-size: clamp(24px, 8vw, 36px); }
-  .section-title { font-size: clamp(18px, 6vw, 24px); }
-  .nav-cta { display: none; }
-  .truth-hl { font-size: 13px; }
-}
 </style>
 </head>
 <body>
-<!-- NAVBAR -->
-<nav class="nav" id="nav">
-  <div class="nav-logo">🏠 ぶっちゃけ不動産</div>
-  <a href="#form" class="nav-cta">無料相談する</a>
-</nav>
-<!-- FLOAT CTA -->
-<a href="#form" class="float-cta" id="floatCta">📋 無料ヒアリング</a>
-<!-- HERO -->
+
+<!-- ロゴのシンボル（吹き出し＋家）とLINEアイコン -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 64 64">
+    <rect x="42.5" y="9" width="9" height="15" rx="2" fill="#2FA35A"/>
+    <path d="M9 29.5 32 9l23 20.5V45a7 7 0 0 1-7 7H25.5L15 58.5 16.5 52H16a7 7 0 0 1-7-7Z" fill="#fff" stroke="#2FA35A" stroke-width="6" stroke-linejoin="round"/>
+    <circle cx="23" cy="36.5" r="3.6" fill="#1F2A24"/><circle cx="32" cy="36.5" r="3.6" fill="#1F2A24"/><circle cx="41" cy="36.5" r="3.6" fill="#1F2A24"/>
+  </symbol>
+  <symbol id="line" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="16" fill="#fff"/>
+    <path d="M16 7.5c-5.2 0-9.4 3.4-9.4 7.6 0 3.8 3.3 6.9 7.8 7.5.3.1.7.2.8.5.1.2.1.6 0 .8l-.1.8c0 .2-.2.9.8.5s5.4-3.2 7.4-5.4c1.4-1.5 2-3 2-4.7 0-4.2-4.2-7.6-9.3-7.6Z" fill="#06C755"/>
+    <path d="M11.4 17.6h-1.9v-4.2M13.2 13.4v4.2M14.9 17.6v-4.2l2.6 4.2v-4.2M21.3 13.4h-1.9v4.2h1.9M19.4 15.5h1.9" fill="none" stroke="#fff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo" aria-label="ぶっちゃけ不動産"><svg><use href="#mark"/></svg><span><b>ぶっちゃけ</b>不動産</span></a>
+    <nav class="nav-links">
+      <a href="#truth">ぶっちゃけ話</a>
+      <a href="#fee">手数料</a>
+      <a href="#cashback">キャッシュバック</a>
+      <a href="#flow">流れ</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a href="https://lin.ee/5lDiAHd" class="btn btn-line" data-cta="nav"><svg class="line-ico"><use href="#line"/></svg><span class="t">LINEで相談</span></a>
+  </div>
+</header>
+
+<!-- ファーストビュー -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-badge">
-    <span class="dot"></span>
-    不動産業界のぶっちゃけ話
-  </div>
-  <h1>
-    どこの不動産屋に行っても、<br>
-    <span class="accent">物件は同じです。</span>
-  </h1>
-  <p class="hero-sub">
-    同じ物件を探すなら、手数料が安くて対応が早く、<br>
-        キャッシュバックもある業者を選ぶべき理由を、正直に話します。
-  </p>
-  <div class="hero-btns">
-    <a href="#truth" class="btn-primary">ぶっちゃけ話を読む →</a>
-    <a href="#form"  class="btn-ghost">無料で相談する</a>
-  </div>
-  <div class="hero-scroll">
-    <span>SCROLL</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-<!-- STAT BAR -->
-<div class="stat-bar">
-  <div class="stat-inner">
-    <div class="stat-item">
-      <span class="stat-row"><span class="stat-num" data-count="0">0</span><span class="stat-unit">円〜</span></span>
-      <div class="stat-label">仲介手数料</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-row"><span class="stat-num" data-count="30">0</span><span class="stat-unit">分</span></span>
-      <div class="stat-label">問い合わせ後以内に返信</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-row"><span class="stat-num" data-count="2">0</span><span class="stat-unit">つ</span></span>
-      <div class="stat-label">業者が使えるDBはたった</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-row"><span class="stat-num" data-count="100">0</span><span class="stat-unit">%</span></span>
-      <div class="stat-label">相談無料</div>
-    </div>
-  </div>
-</div>
-<!-- PAIN -->
-<section class="bg-light">
-  <div class="container">
-    <div class="section-label">こんな悩みありませんか</div>
-    <h2 class="section-title reveal">「どこの不動産に<span class="hi">行けばいいか</span>わからない」</h2>
-    <p class="section-desc reveal">多くの人が同じ悩みを抱えています。その理由が実は業界の構造にあります。</p>
-    <div class="pain-grid">
-      <div class="pain-card reveal delay-1">
-        <div class="pain-icon">😮</div>
-        <div class="pain-text">いくつか回ったのに、どこも同じような物件しか出てこない</div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-tag">不動産業界のぶっちゃけ話</span>
+        <h1>どこの不動産屋に<br>行っても、<br><span class="mark">物件は同じです。</span></h1>
+        <p class="hero-sub">だから、<span class="em">手数料・スピード・正直さ</span>で<br>選んでください。</p>
+        <div class="hero-btns">
+          <a href="https://lin.ee/5lDiAHd" class="btn btn-line" data-cta="hero"><svg class="line-ico"><use href="#line"/></svg>LINEで無料相談<span class="arw">›</span></a>
+          <a href="#truth" class="btn btn-ghost">ぶっちゃけ話を読む<span class="arw">›</span></a>
+        </div>
+        <ul class="checks">
+          <li>相談だけでもOK</li>
+          <li>しつこい営業なし</li>
+          <li>1都3県を中心に全国対応</li>
+        </ul>
       </div>
-      <div class="pain-card reveal delay-2">
-        <div class="pain-icon">💸</div>
-        <div class="pain-text">仲介手数料がいくらかかるのか、よくわからない</div>
+      <div class="hero-art">
+        <span class="bubble b1">この物件、<br>どう思いますか？</span>
+        <span class="bubble b2">デメリットも<br>正直にお伝えします！</span>
+        <img src="/img/hero.webp" width="900" height="702" alt="スマホで相談する女性と、説明する担当者のイラスト">
       </div>
-      <div class="pain-card reveal delay-3">
-        <div class="pain-icon">⏳</div>
-        <div class="pain-text">連絡しても返事が来ない、対応が遅くて不安</div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><ellipse cx="20" cy="10" rx="11" ry="4.5"/><path d="M9 10v7c0 2.5 4.9 4.5 11 4.5S31 19.5 31 17v-7M9 17v7c0 2.5 4.9 4.5 11 4.5S31 26.5 31 24v-7M9 24v6c0 2.5 4.9 4.5 11 4.5S31 32.5 31 30v-6"/></svg>
+        <div><small>仲介手数料</small><strong>0<span>円〜</span></strong></div>
       </div>
-      <div class="pain-card reveal delay-4">
-        <div class="pain-icon">🤔</div>
-        <div class="pain-text">結局どこに頼めば一番トクなのか判断できない</div>
+      <div class="stat">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M6 9h28v19H17l-7 6v-6H6Z"/><circle cx="14" cy="18.5" r="1.6" fill="currentColor"/><circle cx="20" cy="18.5" r="1.6" fill="currentColor"/><circle cx="26" cy="18.5" r="1.6" fill="currentColor"/></svg>
+        <div><small>LINEの返信</small><strong>30<span>分以内</span></strong></div>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="7" y="7" width="26" height="9" rx="3"/><rect x="7" y="20" width="26" height="9" rx="3"/><path d="M12 11.5h4M12 24.5h4" stroke-linecap="round"/><path d="M20 29v5"/></svg>
+        <div><small>業者が使うDBは</small><strong>2<span>つだけ</span></strong></div>
+      </div>
+      <div class="stat">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="14"/><path d="m14 12 6 8 6-8M20 20v10M14.5 21h11M14.5 25.5h11"/></svg>
+        <div><small>相談</small><strong>無料</strong></div>
       </div>
     </div>
   </div>
 </section>
-<!-- TRUTH -->
-<section class="bg-white" id="truth">
-  <div class="container">
-    <div class="section-label">業界の本音</div>
-    <h2 class="section-title reveal">ぶっちゃけます。<br><span class="hi">不動産の裏側。</span></h2>
-    <p class="section-desc reveal">業者が普通絶対に言わないことを、正直にお話しします。</p>
-    <div class="truth-wrap">
-      <div class="truth-card reveal-left delay-1">
-        <div class="truth-num">01</div>
-        <div class="truth-body">
-          <h3>業者が見られるDBは「2つ」だけ</h3>
-          <p>不動産業者が物件を探すとき、実際に使うのは<strong>「レインズ」と「ATBB」の2つだけ</strong>。SUUMOやHOME'Sはここからデータを転載しているだけです。</p>
-          <div class="truth-hl">✅ どの業者に行っても、同じDBから探しています</div>
-        </div>
-      </div>
-      <div class="truth-card reveal-left delay-2">
-        <div class="truth-num">02</div>
-        <div class="truth-body">
-          <h3>「独占物件」は限りなく少ない</h3>
-          <p>各社が独占的に持つ専任物件は存在します。ただ、あなたの希望エリア・条件にマッチする確率は<strong>限りなく低い</strong>のが現実です。</p>
-          <div class="truth-hl">✅ 独占物件に期待するより、条件の良い業者を選ぶほうが賢明</div>
-        </div>
-      </div>
-      <div class="truth-card reveal-left delay-3">
-        <div class="truth-num">03</div>
-        <div class="truth-body">
-          <h3>結論：物件が同じなら「誰に頼むか」だけ</h3>
-          <p>出てくる物件は基本的に同一。判断基準は<strong>手数料・スピード・誠実さ</strong>の3点だけです。</p>
-          <div class="truth-hl">✅ すべてで優れた業者を選べばいい、それだけです</div>
-        </div>
+
+<!-- お悩み -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">WORRIES</span>
+      <h2>こんなお悩み、ありませんか？</h2>
+    </div>
+    <div class="worries">
+      <div class="card worry reveal"><img src="/img/worry1.webp" alt="" loading="lazy" width="320" height="320"><p>いくつか回ったのに、<br>どこも同じような物件しか<br>出てこない</p></div>
+      <div class="card worry reveal"><img src="/img/worry2.webp" alt="" loading="lazy" width="320" height="320"><p>仲介手数料がいくら<br>かかるのか、<br>よくわからない</p></div>
+      <div class="card worry reveal"><img src="/img/worry3.webp" alt="" loading="lazy" width="320" height="320"><p>連絡しても返事が来ない。<br>対応が遅くて<br>いい物件を逃しそう</p></div>
+      <div class="card worry reveal"><img src="/img/worry4.webp" alt="" loading="lazy" width="320" height="320"><p>結局どこに頼めば<br>一番トクなのか<br>判断できない</p></div>
+    </div>
+    <p class="worry-answer reveal">その理由は、<span class="em">不動産業界の仕組み</span>にあります。</p>
+  </div>
+</section>
+
+<!-- 要注意 -->
+<section class="sec alt" id="caution">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">CAUTION</span>
+      <h2>お部屋探しで、よくある<span style="color:var(--warn)">「要注意」</span></h2>
+      <p>どれも業界ではめずらしくない話です。知っているだけで損を防げます。</p>
+    </div>
+    <div class="warns">
+      <div class="card warn reveal"><span class="tag">⚠ 要注意</span><h3>問い合わせたら「もう決まりました」</h3><p>集客のために、すでに決まった物件を載せ続ける「おとり広告」。来店すると別の物件をすすめられます。</p></div>
+      <div class="card warn reveal"><span class="tag">⚠ 要注意</span><h3>仲介手数料は「1ヶ月分が当たり前」</h3><p>上限いっぱいの家賃1ヶ月分を、説明なしで請求されるケースがほとんどです。</p></div>
+      <div class="card warn reveal"><span class="tag">⚠ 要注意</span><h3>よくわからない費用が初期費用に</h3><p>消毒代・サポート料などのオプションが、必須のような顔で見積に入っていることがあります。</p></div>
+      <div class="card warn reveal"><span class="tag">⚠ 要注意</span><h3>返信が遅く、いい物件を逃す</h3><p>人気の物件は数日で決まります。返事を待っている間に、他の人に申し込まれてしまうことも。</p></div>
+      <div class="card warn reveal"><span class="tag">⚠ 要注意</span><h3>お店に都合のいい物件ばかり</h3><p>お店がもうかる物件を優先して紹介され、あなたの希望が後回しになることがあります。</p></div>
+      <div class="card warn reveal"><span class="tag">⚠ 要注意</span><h3>デメリットは教えてくれない</h3><p>日当たり・騒音・管理の悪さなど、都合の悪い話は聞かないと出てきません。</p></div>
+    </div>
+    <div class="promise reveal">
+      <svg viewBox="0 0 52 52" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M26 5 9 11v13c0 11 7.4 19.6 17 23 9.6-3.4 17-12 17-23V11Z"/><path d="m18 26 6 6 11-12"/></svg>
+      <div>
+        <h3>ぶっちゃけ不動産は、全部正直にお話しします。</h3>
+        <p>手数料の決まり方も、初期費用の中身も、物件のデメリットも。聞かれる前にお伝えします。</p>
       </div>
     </div>
   </div>
 </section>
-<!-- FEE -->
-<section class="bg-light">
-  <div class="container">
-    <div class="section-label">お金の話</div>
-    <h2 class="section-title reveal">仲介手数料の<span class="hi">仕組み</span>、正直に言います</h2>
-    <p class="section-desc reveal">「なぜ払うの？払わなくていいケースは？」を包み隠さずお伝えします。</p>
-    <div class="fee-visual reveal">
-      <div class="fee-header">💰 ぶっちゃけ不動産の料金体系</div>
-      <div class="fee-body">
-        <div class="fee-row">
-          <span class="fee-row-label">オーナーからの紹介料がある物件</span>
-          <span class="fee-row-val">手数料 <strong>0円</strong></span>
-        </div>
-        <div class="fee-row">
-          <span class="fee-row-label">紹介料がない物件</span>
-          <span class="fee-row-val">MAX <strong>家賃0.5ヶ月分</strong></span>
-        </div>
-        <div class="fee-row">
-          <span class="fee-row-label">一般的な不動産（相場）</span>
-          <span class="fee-row-val dim">家賃1ヶ月分</span>
-        </div>
-        <div class="fee-bar-wrap">
-          <div class="fee-bar-label"><span>うちの手数料（最大）</span><span>業界相場比 50% OFF</span></div>
-          <div class="fee-bar-bg">
-            <div class="fee-bar-fill" id="feeBar"></div>
-          </div>
-        </div>
+
+<!-- 業界の本音 -->
+<section class="sec" id="truth">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">HONEST TALK</span>
+      <h2>ぶっちゃけます。<span class="em">不動産の裏側。</span></h2>
+      <p>業者が普通は言わないことを、正直にお話しします。</p>
+    </div>
+    <div class="truths">
+      <div class="card truth reveal">
+        <div class="truth-top"><span class="truth-num">01</span><img src="/img/truth1.webp" alt="" loading="lazy" width="280" height="280"></div>
+        <h3>業者が見られるDBは「2つ」だけ</h3>
+        <p>不動産業者が物件を探すとき、実際に使うのは<strong>「レインズ」と「ATBB」の2つだけ</strong>。SUUMOやHOME'Sの物件も、もとをたどればここにある情報です。</p>
+        <div class="so">✓ どの業者に行っても、同じDBから探しています</div>
+      </div>
+      <div class="card truth reveal">
+        <div class="truth-top"><span class="truth-num">02</span><img src="/img/truth2.webp" alt="" loading="lazy" width="280" height="280"></div>
+        <h3>「独占物件」は限りなく少ない</h3>
+        <p>各社が独占的に持つ物件も存在します。ただ、あなたの希望エリア・条件に合う確率は<strong>限りなく低い</strong>のが現実です。</p>
+        <div class="so">✓ 独占物件に期待するより、条件の良い業者を選ぶほうが賢明</div>
+      </div>
+      <div class="card truth reveal">
+        <div class="truth-top"><span class="truth-num">03</span><img src="/img/truth3.webp" alt="" loading="lazy" width="280" height="280"></div>
+        <h3>物件が同じなら「誰に頼むか」だけ</h3>
+        <p>出てくる物件は基本的に同じ。判断基準は<strong>手数料・スピード・誠実さ</strong>の3つだけです。</p>
+        <div class="so">✓ 3つすべてで優れた業者を選べばいい、それだけです</div>
       </div>
     </div>
   </div>
 </section>
-<!-- CASHBACK -->
-<section class="bg-green-light">
-  <div class="container">
-    <div class="section-label">さらにお得</div>
-    <h2 class="section-title reveal">ライフライン契約で<span class="hi">キャッシュバック</span></h2>
-    <p class="section-desc reveal">引越し時に必要なライフラインをまとめてご契約いただくと、キャッシュバックがあります。</p>
-    <div class="cb-grid">
-      <div class="cb-card reveal delay-1">
-        <div class="cb-icon">⚡</div>
-        <div class="cb-name">電気</div>
-        <div class="cb-desc">引越し先の電気を一緒に手続き</div>
-        <div class="cb-tag">キャッシュバックあり</div>
+
+<!-- 手数料 -->
+<section class="sec alt" id="fee">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FEE</span>
+      <h2>仲介手数料のしくみ、<br><span class="em">正直に言います。</span></h2>
+      <p>「なぜ払うの？ 安くなるのはどんなとき？」を包み隠さずお伝えします。</p>
+    </div>
+    <div class="fee-rule reveal">
+      <span class="eq"><span class="pill">オーナーからの紹介料</span>＋<span class="pill">お客様の仲介手数料</span>＝<span class="pill solid">家賃1ヶ月分</span></span>
+    </div>
+    <div class="fees">
+      <div class="card fee reveal">
+        <div class="fee-head">ぶっちゃけ不動産<small>紹介料が家賃1ヶ月分の物件</small></div>
+        <div class="fee-body">
+          <div class="fee-row"><span>オーナーからの紹介料</span><b>1ヶ月分</b></div>
+          <div class="fee-row"><span>お客様の仲介手数料</span><b>0円</b></div>
+          <div class="fee-total"><span>合計</span><b>1ヶ月分</b></div>
+          <div class="fee-you">あなたの負担：<strong>0円</strong></div>
+        </div>
       </div>
-      <div class="cb-card reveal delay-2">
-        <div class="cb-icon">🔥</div>
-        <div class="cb-name">ガス</div>
-        <div class="cb-desc">都市ガス・プロパン対応</div>
-        <div class="cb-tag">キャッシュバックあり</div>
+      <div class="card fee half reveal">
+        <div class="fee-head">ぶっちゃけ不動産<small>紹介料が家賃0.5ヶ月分の物件</small></div>
+        <div class="fee-body">
+          <div class="fee-row"><span>オーナーからの紹介料</span><b>0.5ヶ月分</b></div>
+          <div class="fee-row"><span>お客様の仲介手数料</span><b>0.5ヶ月分</b></div>
+          <div class="fee-total"><span>合計</span><b>1ヶ月分</b></div>
+          <div class="fee-you">あなたの負担：<strong>半額</strong></div>
+        </div>
       </div>
-      <div class="cb-card reveal delay-3">
-        <div class="cb-icon">🌐</div>
-        <div class="cb-name">インターネット</div>
-        <div class="cb-desc">引越し後すぐ使えるよう手配</div>
-        <div class="cb-tag">キャッシュバックあり</div>
+      <div class="card fee other reveal">
+        <div class="fee-head">一般的な不動産<small>相場</small></div>
+        <div class="fee-body">
+          <div class="fee-row"><span>オーナーからの紹介料</span><b>受け取ることも</b></div>
+          <div class="fee-row"><span>お客様の仲介手数料</span><b>1ヶ月分</b></div>
+          <div class="fee-total"><span>あなたの負担</span><b>1ヶ月分</b></div>
+          <div class="fee-you">紹介料があっても手数料は満額</div>
+        </div>
+      </div>
+    </div>
+    <div class="card why reveal">
+      <div class="why-q">なんで安く<br>できるの？</div>
+      <div>
+        <p>多くの物件では、オーナーから不動産会社へ<strong>「紹介料（広告料）」</strong>が支払われています。一般的な不動産はこれを受け取ったうえで、お客様からも仲介手数料を満額いただくことがほとんど。ぶっちゃけ不動産は<strong>紹介料の分だけ、お客様の仲介手数料を下げています。</strong></p>
+        <div class="sim">
+          <label for="rent">家賃</label>
+          <select id="rent">
+            <option value="60000">6万円</option><option value="70000">7万円</option><option value="80000" selected>8万円</option><option value="90000">9万円</option><option value="100000">10万円</option><option value="120000">12万円</option><option value="150000">15万円</option>
+          </select>
+          <span>の物件なら、相場より最大</span><output id="save">88,000円</output><span>おトク</span>
+        </div>
+        <p class="note">※紹介料が家賃1ヶ月分の物件で、相場の仲介手数料（家賃1ヶ月分＋消費税）と比べた場合。</p>
       </div>
     </div>
   </div>
 </section>
-<!-- STRENGTH -->
-<section class="bg-white">
-  <div class="container">
-    <div class="section-label">選ばれる理由</div>
-    <h2 class="section-title reveal">物件が同じなら、<span class="hi">うちを選ぶ理由</span></h2>
-    <p class="section-desc reveal">対応・価格・誠実さ、すべてで業界水準を超えることを約束します。</p>
-    <div class="str-list">
-      <div class="str-item reveal delay-1">
-        <div class="str-icon">⚡</div>
-        <div class="str-text">
-          <strong>圧倒的な返信スピード</strong>
-          <span>問い合わせに即対応。「返事が遅い」とは言わせません。</span>
+
+<!-- キャッシュバック -->
+<section class="sec" id="cashback">
+  <div class="wrap">
+    <div class="card life reveal">
+      <div>
+        <span class="eyebrow">CASHBACK</span>
+        <h2>ライフラインもまとめて、<br><span class="em">キャッシュバック。</span></h2>
+        <p>引越しで必要な電気・ガス・インターネットをまとめてご契約いただくと、キャッシュバックがあります。面倒な手続きもお手伝いします。</p>
+        <div class="life-items">
+          <div class="life-item"><i>⚡</i><div><b>電気</b><small>キャッシュバックあり</small></div></div>
+          <div class="life-item"><i>🔥</i><div><b>ガス</b><small>キャッシュバックあり</small></div></div>
+          <div class="life-item"><i>📶</i><div><b>インターネット</b><small>キャッシュバックあり</small></div></div>
         </div>
       </div>
-      <div class="str-item reveal delay-2">
-        <div class="str-icon">💬</div>
-        <div class="str-text">
-          <strong>デメリットも正直に伝える</strong>
-          <span>都合の悪いことも隠しません。納得した上で決めてらうのが方針です。</span>
-        </div>
-      </div>
-      <div class="str-item reveal delay-3">
-        <div class="str-icon">💴</div>
-        <div class="str-text">
-          <strong>手数料は業界最低水準</strong>
-          <span>0円〜最大0.5ヶ月分。一般業者の半額以下を徹底。</span>
-           </div>
-      </div>
-      <div class="str-item reveal delay-4">
-        <div class="str-icon">🎁</div>
-        <div class="str-text">
-          <strong>ライフライン一括でキャッシュバック</strong>
-          <span>初期費用をできるだけ下げるお手伝いをします。</span>
-        </div>
-      </div>
+      <img src="/img/life.webp" alt="スマホを見て喜ぶ女性のイラスト" loading="lazy" width="480" height="480">
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:72px">
+      <span class="eyebrow">FOR YOUR LIFE</span>
+      <h2>浮いたお金で、<br><span class="em">新生活をもっと楽しく。</span></h2>
+      <p>手数料とキャッシュバックで浮いたお金は、こんなことに。</p>
+    </div>
+    <div class="uses">
+      <div class="card use reveal"><i>🛋️</i><b>家具・家電を充実</b><small>欲しかったソファや<br>新しい家電に</small></div>
+      <div class="card use reveal"><i>🚚</i><b>引越し代に</b><small>意外とかかる<br>引越し費用の足しに</small></div>
+      <div class="card use reveal"><i>✈️</i><b>旅行やごほうびに</b><small>新生活の前に<br>ちょっと一息</small></div>
+      <div class="card use reveal"><i>🏡</i><b>ワンランク上の部屋</b><small>浮いた分で<br>条件を1つ上げる</small></div>
     </div>
   </div>
 </section>
-<!-- COMPARE -->
-<section class="bg-light">
-  <div class="container">
-    <div class="section-label">比較</div>
-    <h2 class="section-title reveal">一般の不動産と<span class="hi">並べてみると？</span></h2>
-    <div class="compare-wrap reveal">
+
+<!-- 選ばれる理由・比較 -->
+<section class="sec alt" id="reason">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">REASON</span>
+      <h2>物件が同じなら、<br><span class="em">うちを選ぶ理由。</span></h2>
+    </div>
+    <div class="reasons">
+      <div class="card reason reveal">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="22" r="17"/><path d="m15 13 7 9 7-9M22 22v11M16 23h12M16 28h12"/></svg>
+        <h3>手数料が安い</h3><p>紹介料と合わせて家賃1ヶ月分。紹介料が1ヶ月分ある物件なら手数料0円。</p>
+      </div>
+      <div class="card reason reveal">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M25 4 9 25h12l-3 15 17-22H23Z"/></svg>
+        <h3>返信が速い</h3><p>LINEで30分以内に返信。「返事が遅い」とは言わせません。</p>
+      </div>
+      <div class="card reason reveal">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"><path d="M5 9h34v22H20l-8 7v-7H5Z"/><circle cx="15" cy="20" r="1.8" fill="currentColor"/><circle cx="22" cy="20" r="1.8" fill="currentColor"/><circle cx="29" cy="20" r="1.8" fill="currentColor"/></svg>
+        <h3>デメリットも隠さない</h3><p>都合の悪いことも正直に。納得したうえで決めてもらうのが方針です。</p>
+      </div>
+      <div class="card reason reveal">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="16" width="32" height="22" rx="3"/><path d="M4 11h36v5H4ZM22 11v27M22 11c-3-6-10-6-10-1.5S22 11 22 11c3-6 10-6 10-1.5S22 11 22 11"/></svg>
+        <h3>キャッシュバックあり</h3><p>ライフラインの一括契約でキャッシュバック。初期費用を少しでも下げます。</p>
+      </div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:72px">
+      <span class="eyebrow">COMPARE</span>
+      <h2>一般の不動産と<span class="em">並べてみると？</span></h2>
+    </div>
+    <div class="card compare reveal">
       <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th class="us">ぶっちゃけ不動産</th>
-            <th class="oth">一般の不動産</th>
-          </tr>
-        </thead>
+        <thead><tr><th></th><th class="us">ぶっちゃけ不動産</th><th>一般の不動産</th></tr></thead>
         <tbody>
-          <tr><td>紹介できる物件数</td><td><span class="ok">◎ 同じ</span></td><td><span class="ok">◎ 同じ</span></td></tr>
-          <tr><td>仲介手数料</td><td><span class="ok">0〜0.5ヶ月分</span></td><td><span class="ng">1ヶ月分（相場）</span></td></tr>
-          <tr><td>キャッシュバック</td><td><span class="ok">✔ あり</span></td><td><span class="ng">なし</span></td></tr>
-          <tr><td>返信スピード</td><td><span class="ok">✔ 即対応</span></td><td><span class="ng">ケースによる</span></td></tr>
-          <tr><td>デメリットの開示</td><td><span class="ok">✔ 正直に伝える</span></td><td><span class="ng">ケースによる</span></td></tr>
+          <tr><th>紹介できる物件</th><td class="us">同じ（レインズ・ATBB）</td><td class="them">同じ</td></tr>
+          <tr><th>仲介手数料</th><td class="us">0円〜（紹介料に応じて減額）</td><td class="them">家賃1ヶ月分が一般的</td></tr>
+          <tr><th>キャッシュバック</th><td class="us">あり（ライフライン）</td><td class="them">なし</td></tr>
+          <tr><th>返信スピード</th><td class="us">LINEで30分以内</td><td class="them">ケースによる</td></tr>
+          <tr><th>デメリットの説明</th><td class="us">正直にお伝えする</td><td class="them">ケースによる</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
-<!-- PROCESS -->
-<section class="bg-white">
-  <div class="container">
-    <div class="section-label">流れ</div>
-    <h2 class="section-title reveal">ご利用の<span class="hi">かんたんな流れ</span></h2>
-    <div class="proc-list">
-      <div class="proc-step reveal delay-1">
-        <div class="proc-dot">1</div>
-        <div class="proc-body">
-          <strong>LINEを友だち追加</strong>
-          <span>このページから友だち追加するだけで完了です</span>
-        </div>
+
+<!-- LINEで聞けること -->
+<section class="sec">
+  <div class="wrap">
+    <div class="card gift reveal">
+      <div class="gift-l">
+        <span class="eyebrow">LINE</span>
+        <h2>LINEなら、<br>こんな話も聞けます。</h2>
+        <p>友だち追加は30秒。相談だけでもOK、いつでもブロックできます。</p>
+        <a href="https://lin.ee/5lDiAHd" class="btn" data-cta="gift"><svg class="line-ico"><use href="#line"/></svg>友だち追加して聞く<span class="arw">›</span></a>
       </div>
-      <div class="proc-step reveal delay-2">
-        <div class="proc-dot">2</div>
-        <div class="proc-body">
-          <strong>ぶっちゃけシートを読む</strong>
-          <span>業界の仕組みを理解したうえで判断できます</span>
-        </div>
+      <ul class="gift-r">
+        <li><span>1</span>どの業者に行っても物件は同じ、その理由</li>
+        <li><span>2</span>おとり物件を見抜く方法</li>
+        <li><span>3</span>仲介手数料が0円になるケース・ならないケース</li>
+        <li><span>4</span>家賃交渉が通りやすいタイミング</li>
+        <li><span>5</span>内見で「絶対に確認すべき」7つのこと</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section class="sec alt" id="flow">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FLOW</span>
+      <h2>ご利用の<span class="em">かんたんな流れ</span></h2>
+      <p>やりとりはLINEで完結。初めての方でも安心してご相談ください。</p>
+    </div>
+    <div class="steps">
+      <div class="card step reveal">
+        <div class="step-ico"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="8" y="3" width="14" height="24" rx="3"/><path d="M13 23h4" stroke-linecap="round"/></svg></div>
+        <span class="step-num">STEP 01</span><h3>LINEを友だち追加</h3><p>ボタンから追加するだけ。30秒で完了します。</p>
       </div>
-      <div class="proc-step reveal delay-3">
-        <div class="proc-dot">3</div>
-        <div class="proc-body">
-          <strong>ヒアリングフォームに答える</strong>
-          <span>希望エリア・家賃・条件を入力（3分で完了）</span>
-        </div>
+      <div class="card step reveal">
+        <div class="step-ico"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M7 3h12l5 5v19H7Z"/><path d="M11 13h9M11 18h9M11 23h5" stroke-linecap="round"/></svg></div>
+        <span class="step-num">STEP 02</span><h3>ヒアリングフォームに回答</h3><p>希望エリア・家賃・条件を入力（3分で完了）。</p>
       </div>
-      <div class="proc-step reveal delay-4">
-        <div class="proc-dot">4</div>
-        <div class="proc-body">
-          <strong>担当者からすぐ連絡</strong>
-          <span>フォーム送信後、スピード対応でご連絡します</span>
-        </div>
+      <div class="card step reveal">
+        <div class="step-ico"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M4 14 15 4l11 10v12H4Z"/><path d="M12 26v-7h6v7"/></svg></div>
+        <span class="step-num">STEP 03</span><h3>物件のご提案</h3><p>条件に合う物件を、良い点も悪い点も添えてLINEでお送りします。</p>
+      </div>
+      <div class="card step reveal">
+        <div class="step-ico"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="15" r="6"/><path d="M17 15h10M23 15v4M27 15v3"/></svg></div>
+        <span class="step-num">STEP 04</span><h3>内見・ご契約</h3><p>納得できたら申し込み。契約まで担当がサポートします。</p>
       </div>
     </div>
   </div>
 </section>
-<!-- CTA -->
-<div class="cta-section" id="form">
-  <div class="container">
-    <h2 class="reveal">まず、あなたの希望を<br><span>教えてください。</span></h2>
-    <p class="reveal">ヒアリングフォームに答えていただければ、すぐにこちらからご連絡します。費用は一切かかりません。</p>
-    <a href="https://bucchake-fudosan.vercel.app/form.html" class="cta-big-btn reveal">📋 ヒアリングフォームに答える（無料）</a>
-    <p class="cta-note reveal">送信後、担当者からLINEにて折り返しご連絡します</p>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>相談だけでも大丈夫ですか？</summary><div class="a">もちろん大丈夫です。相談は無料で、しつこい営業もしません。「まだ時期が決まっていない」「相場を知りたい」だけでもお気軽にどうぞ。</div></details>
+      <details class="reveal"><summary>仲介手数料はいつ、いくらになるかわかりますか？</summary><div class="a">物件ごとにオーナーからの紹介料が違うため、気になる物件が決まった時点でお伝えします。紹介料と仲介手数料を合わせて家賃1ヶ月分になるように設定しているので、紹介料が多い物件ほど安くなります。</div></details>
+      <details class="reveal"><summary>SUUMOなどで見つけた物件も紹介してもらえますか？</summary><div class="a">はい。不動産業者が使う物件データベースは共通なので、他のサイトで見つけた物件もほとんどご紹介できます。URLやスクリーンショットをLINEで送ってください。</div></details>
+      <details class="reveal"><summary>対応エリアはどこですか？</summary><div class="a">東京・神奈川・千葉・埼玉の1都3県を中心に、全国対応しています。</div></details>
+      <details class="reveal"><summary>キャッシュバックはどうすれば受け取れますか？</summary><div class="a">お部屋のご契約にあわせて、電気・ガス・インターネットをまとめてご契約いただくと対象になります。くわしい金額や条件は担当からご案内します。</div></details>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- 最後のCTA -->
+<section id="form">
+  <div class="wrap">
+    <div class="card final reveal">
+      <div>
+        <h2>まずは、あなたの希望を<br>教えてください。</h2>
+        <p>ヒアリングフォームに答えていただければ、担当からLINEですぐにご連絡します。費用は一切かかりません。</p>
+        <div class="hero-btns">
+          <a href="https://lin.ee/5lDiAHd" class="btn btn-line" data-cta="final"><svg class="line-ico"><use href="#line"/></svg>LINEで無料相談<span class="arw">›</span></a>
+          <a href="/form" class="btn btn-ghost" data-cta="form">ヒアリングフォームに答える<span class="arw">›</span></a>
+        </div>
+      </div>
+      <img src="/img/staff.webp" alt="手を挙げる担当者のイラスト" loading="lazy" width="420" height="420">
+    </div>
+  </div>
+</section>
+
 <footer>
-  <p>© 2026 ぶっちゃけ不動産 | 1都3県を中心に全国対応</p>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#" class="logo"><svg><use href="#mark"/></svg><span><b>ぶっちゃけ</b>不動産</span></a>
+      <nav class="foot-links">
+        <a href="#truth">ぶっちゃけ話</a><a href="#fee">手数料</a><a href="#cashback">キャッシュバック</a><a href="#flow">流れ</a><a href="#faq">よくある質問</a><a href="/form">ヒアリングフォーム</a>
+      </nav>
+    </div>
+    <p class="copy">© 2026 ぶっちゃけ不動産 ｜ 1都3県を中心に全国対応</p>
+  </div>
 </footer>
+
+<a href="https://lin.ee/5lDiAHd" class="float" id="floatCta" data-cta="float">
+  <svg class="line-ico" style="width:36px;height:36px"><use href="#line"/></svg>
+  <span><b>LINEで無料相談</b><small>30分以内に返信します</small></span>
+  <span class="go">友だち追加</span>
+</a>
+
 <script>
-/* ── ナビバー & フロートCTA ── */
-const nav = document.getElementById('nav');
-const floatCta = document.getElementById('floatCta');
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  nav.classList.toggle('scrolled', y > 60);
-  floatCta.classList.toggle('show', y > window.innerHeight * 0.55);
-}, { passive: true });
-/* ── スクロールフェードイン ── */
-const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const revObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.14 });
-revealEls.forEach(el => revObserver.observe(el));
-/* ── カウントアップ ── */
-function countUp(el, target, duration = 1100) {
-  const start = performance.now();
-  const tick = (now) => {
-    const p = Math.min((now - start) / duration, 1);
-    el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
-    if (p < 1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-}
-const statNums = document.querySelectorAll('.stat-num[data-count]');
-const cntObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { countUp(e.target, +e.target.dataset.count); cntObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.5 });
-statNums.forEach(el => cntObserver.observe(el));
-/* ── 手数料バc�� ── */
-const feeBar = document.getElementById('feeBar');
-const feeObserver =
- new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { setTimeout(() => { feeBar.style.width = '50%'; }, 300); feeObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.5 });
-if (feeBar) feeObserver.observe(feeBar);
-/* ── スムーズスクロール ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  });
-});
+  const nav = document.getElementById('nav');
+  const floatCta = document.getElementById('floatCta');
+  let finalVisible = false;
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+    floatCta.classList.toggle('show', window.scrollY > window.innerHeight * 0.6 && !finalVisible);
+  }
+  new IntersectionObserver(([e]) => { finalVisible = e.isIntersecting; onScroll(); }).observe(document.getElementById('form'));
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // 相場の仲介手数料（家賃1ヶ月分＋消費税）が0円になる場合の差額
+  const rent = document.getElementById('rent'), save = document.getElementById('save');
+  const calc = () => { save.textContent = Math.round(rent.value * 1.1).toLocaleString('ja-JP') + '円'; };
+  rent.addEventListener('change', calc); calc();
+
+  document.querySelectorAll('[data-cta]').forEach(a => a.addEventListener('click', () => {
+    if (window.gtag) gtag('event', a.href.includes('lin.ee') ? 'line_click' : 'form_click', { cta: a.dataset.cta });
+  }));
 </script>
 </body>
 </html>

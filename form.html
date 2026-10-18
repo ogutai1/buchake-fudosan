@@ -4,24 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>お部屋探しヒアリングフォーム｜ぶっちゃけ不動産</title>
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #96C96B;
-    --green-dark: #6BA846;
-    --green-light: #DCF2C0;
-    --green-deep: #3D6B28;
-    --black: #1A1A1A;
-    --gray: #555555;
-    --gray-light: #F7F7F7;
+    --green: #2FA35A;
+    --green-dark: #2FA35A;
+    --green-light: #E8F4EA;
+    --green-deep: #22834A;
+    --black: #1F2A24;
+    --gray: #5B6660;
+    --gray-light: #F3F8F1;
     --white: #FFFFFF;
-    --border: #E0E0E0;
+    --border: #E2E8E3;
     --error: #E05050;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
     background: var(--gray-light);
     color: var(--black);
     font-size: 16px;
@@ -30,32 +34,35 @@
   }
 
   /* ===== HEADER ===== */
+  .topbar { background: #fff; border-bottom: 1px solid var(--border); }
+  .topbar a { display: flex; align-items: center; gap: 8px; max-width: 640px; margin: 0 auto; padding: 12px 16px; font-family: 'Zen Maru Gothic', sans-serif; font-weight: 900; font-size: 19px; color: var(--black); text-decoration: none; }
+  .topbar svg { width: 30px; height: 30px; }
+  .topbar b { color: var(--green); }
   .header {
-    background:
-      linear-gradient(180deg, rgba(10,30,10,0.52) 0%, rgba(10,30,10,0.22) 45%, rgba(10,30,10,0.45) 100%),
-      url('https://images.unsplash.com/photo-1568242629525-62b0c3d77fb7?w=1600&q=80') center 45% / 120% auto no-repeat;
-    color: white;
-    padding: 28px 20px 24px;
+    background: linear-gradient(180deg, #E8F4EA 0%, var(--gray-light) 100%);
+    padding: 28px 20px 22px;
     text-align: center;
   }
   .header .badge {
     display: inline-block;
-    background: var(--green);
-    color: var(--black);
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--green-deep);
     font-size: 12px;
     font-weight: 700;
-    padding: 3px 12px;
+    padding: 3px 14px;
     border-radius: 20px;
     margin-bottom: 10px;
   }
   .header h1 {
-    font-size: clamp(20px, 5vw, 26px);
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: clamp(22px, 5vw, 28px);
     font-weight: 900;
     margin-bottom: 6px;
   }
   .header p {
     font-size: 13px;
-    color: rgba(255,255,255,0.65);
+    color: var(--gray);
   }
 
   /* ===== PROGRESS ===== */
@@ -323,8 +330,9 @@
 </head>
 <body>
 
+<div class="topbar"><a href="/" aria-label="ぶっちゃけ不動産"><svg viewBox="0 0 64 64"><rect x="42.5" y="9" width="9" height="15" rx="2" fill="#2FA35A"/><path d="M9 29.5 32 9l23 20.5V45a7 7 0 0 1-7 7H25.5L15 58.5 16.5 52H16a7 7 0 0 1-7-7Z" fill="#fff" stroke="#2FA35A" stroke-width="6" stroke-linejoin="round"/><circle cx="23" cy="36.5" r="3.6" fill="#1F2A24"/><circle cx="32" cy="36.5" r="3.6" fill="#1F2A24"/><circle cx="41" cy="36.5" r="3.6" fill="#1F2A24"/></svg><span><b>ぶっちゃけ</b>不動産</span></a></div>
 <div class="header">
-  <div class="badge">🏠 お部屋探しヒアリング</div>
+  <div class="badge">お部屋探しヒアリング</div>
   <h1>あなたの希望を教えてください</h1>
   <p>記入後すぐに担当者からLINEでご連絡します（無料）</p>
 </div>
