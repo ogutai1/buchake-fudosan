@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mypage.bucchake-fudosan.com" }],
+      "destination": "https://bukken-teian.oguchi.workers.dev/:path*"
+    }
+  ]
+}
